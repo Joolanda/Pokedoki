@@ -4,12 +4,7 @@
  * Doki Doki! You clicked the button
  * Date: 2019-11-11
  */
-var myName = 'Bob';
-document.write(myName);
-myName = 'John Doe';
-document.write(myName);
+ alert('Hello Jon & rest of the world!');
 
-var size = 100;
-var doubleSize = size * 2;
-var minSize = (doubleSize * 2) - (size / 2);
-document.write(minSize);
+ var myFavoriteFood = 'Lasagna';
+ document.write(myFavoriteFood);
