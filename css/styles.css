@@ -1,15 +1,50 @@
 /* Pokido Style Sheet */
-
-body {
-  padding-top: 50px;
-  text-align: center;
-}
+/* Color Pokémon: Yellow #ffcb05, Blue #3466af
+Light blue Pokemon: 618ED0
 /* here you can write your Site colors */
+body {
+  background-color: #3366cc;
+  color: inherit;
+  font-family: 'Roboto Mono', monospace, Helvetica, sans-serif;;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 10px;
+}
 
 /* Header */
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #3366cc;
+  background-color: #ffcb05;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3366cc;
+  background-color: #ffcb05;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+a {
+  color: #ffcb05;
+  background-color: #3366cc;
+}
 
 /* Navigation section */
 
 /* Profile Section */
 
 /* Footer */
+.page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+}
