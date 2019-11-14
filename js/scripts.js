@@ -6,22 +6,22 @@
 
  // This array will become the repository of Pokémon to display in myapplication
 var repository = [
-  PokemonNames,
-  PokemonHeight,
-  PokemonTypes,
+  pokemonNames,
+  pokemonHeight,
+  pokemonTypes,
 ];
 
 // array of pokemon names
-var PokemonNames = [
-  "Absol",
-  "Luxray",
-  "Pikachu",
-  "Milotic",
-  "Eevee",
+var pokemonName = [
+  'Absol',
+  'Luxray',
+  'Pikachu',
+  'Milotic',
+  'Eevee',
 ];
 
 // array of pokemon types, use array of strings
-var PokemonTypes = [
+var pokemonType = [
   'water',
   'electric',
   'dark',
@@ -29,36 +29,42 @@ var PokemonTypes = [
 ];
 
 // array of pokemon heights, use array of strings
-var PokemonHeights = [
-  "3'11/"",
-  "4'07/"",
-  "1'04/"",
-  "20'04/"",
-  "1'00/"",
+var pokemonHeight = [
+  "3'11\"",
+  "4'07\"",
+  "1'04\"",
+  "20'04\"",
+  "1'00\"",
 ];
 
-// asigning valuea to the variables
-var Absol = {
-  PokemonHeight: "3'11/"",
-  PokemonTypes: 'dark',
+
+// defining the pokemons without external input
+var absol = {
+  pokemonName: 'Absol',
+  pokemonHeight: "3'11\"",
+  pokemonType: 'dark',
 };
 
-var Luxray = {
-  PokemonHeight: "4'07/"",
-  PokemonTypes: 'electric',
+var luxray = {
+  pokemonName:'Luxray',
+  pokemonHeight: "4'07\"",
+  pokemonType: 'electric',
 };
 
-var Pikachu = {
-  PokemonHeight: "1'04/"",
-  PokemonTypes: 'electric',
+var pikachu = {
+  pokemonName:'Pikachu',
+  pokemonHeight: "1'04\"",
+  pokemonType: 'electric',
 };
 
-var Milotic = {
-  PokemonHeight: "20'04/"",
-  PokemonTypes: 'water',
+var milotic = {
+  pokemonName: Milotic',
+  pokemonHeight: "20'04\"",
+  pokemonType: 'water',
 };
 
-var Eevee = {
-  PokemonHeight: "1'00/"",
-  PokemonTypes: 'normal',
+var eevee = {
+  pokemonName:'Eevee',
+  pokemonHeight: "1'00\"",
+  pokemonType: 'normal',
 };
