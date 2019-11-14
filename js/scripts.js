@@ -6,9 +6,9 @@
 
  // This array will become the repository of Pokémon to display in myapplication
 var repository = [
-  pokemonNames,
+  pokemonName,
   pokemonHeight,
-  pokemonTypes,
+  pokemonType,
 ];
 
 // array of pokemon names
