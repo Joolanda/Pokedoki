@@ -58,7 +58,7 @@ var pikachu = {
 };
 
 var milotic = {
-  pokemonName: Milotic',
+  pokemonName: 'Milotic',
   pokemonHeight: "20'04\"",
   pokemonType: 'water',
 };
