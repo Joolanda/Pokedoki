@@ -5,11 +5,7 @@
  */
 
  // This array will become the repository of Pokémon to display in myapplication
-var repository = [
-  pokemonName,
-  pokemonHeight,
-  pokemonType,
-];
+var repository = [];
 
 // array of pokemon names
 var pokemonName = [
@@ -37,6 +33,7 @@ var pokemonHeight = [
   "1'00\"",
 ];
 
+repository.push(pokemonName, pokemonType, pokemonHeight);
 
 // defining the pokemons without external input
 var absol = {
