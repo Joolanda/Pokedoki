@@ -31,13 +31,31 @@ var pokemonHeight = [
   "1'04\"",
   "20'04\"",
   "1'00\"",
+  1.2,
+  1.4,
+  0.4,
+  6.2,
+  0.3,
 ];
 
 repository.push(pokemonName, pokemonType, pokemonHeight);
 
-for (var i = 0; i < pokemonName.length; i++) {
-  document.write(pokemonName[i]+" "+"(" + pokemonHeight[i]+")"+"<br>");
+// attempt adding conditional within the loop
+for (var j = 0; j < pokemonHeight.length; j++) {
+var e = pokemonHeight;
+ var result = e;
+
+ if (pokemonHeight[j] > e[j]) {
+  result = 'big';
+} else {
+  result = 'little';
 }
+}
+// write the Pokémon’s height ánd result next to its name
+ for (var i = 0; i < pokemonName.length; i++) {
+   document.write(pokemonName[i]+" "+"(height: " +
+   pokemonHeight[i]+")" + " " + result + "<br>");
+ }
 
 // defining the pokemons without external input
 var absol = {
