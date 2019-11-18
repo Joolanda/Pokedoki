@@ -26,11 +26,6 @@ var pokemonType = [
 
 // array of pokemon heights, use array of strings
 var pokemonHeight = [
-  "3'11\"",
-  "4'07\"",
-  "1'04\"",
-  "20'04\"",
-  "1'00\"",
   1.2,
   1.4,
   0.4,
