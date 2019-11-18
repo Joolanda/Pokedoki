@@ -36,5 +36,5 @@ var repository = [];
  repository.push(pokemonName, pokemonType, pokemonHeight);
 
  for (var i = 0; i < pokemonName.length; i++) {
-   document.write(pokemonName[i]);
+   document.write(pokemonName[i] + "<br>");
  }
