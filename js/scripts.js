@@ -32,33 +32,6 @@
 
  repository.push(pokemonName, pokemonType, pokemonHeight);
 
- // defining the pokemons without external input
- var absol = {
-   pokemonName: 'Absol',
-   pokemonHeight: "3'11\"",
-   pokemonType: 'dark',
- };
-
- var luxray = {
-   pokemonName:'Luxray',
-   pokemonHeight: "4'07\"",
-   pokemonType: 'electric',
- };
-
- var pikachu = {
-   pokemonName:'Pikachu',
-   pokemonHeight: "1'04\"",
-   pokemonType: 'electric',
- };
-
- var milotic = {
-   pokemonName: 'Milotic',
-   pokemonHeight: "20'04\"",
-   pokemonType: 'water',
- };
-
- var eevee = {
-   pokemonName:'Eevee',
-   pokemonHeight: "1'00\"",
-   pokemonType: 'normal',
- };
+ for (var i = 0; i < pokemonName.length; i++) {
+   document.write(pokemonName[i]);
+ }
