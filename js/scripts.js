@@ -26,15 +26,27 @@ var repository = [];
 
  // array of pokemon heights, use array of strings
  var pokemonHeight = [
-   "3'11\"",
-   "4'07\"",
-   "1'04\"",
-   "20'04\"",
-   "1'00\"",
+   1.2,
+   1.4,
+   0.4,
+   6.2,
+   0.3,
  ];
+
+for (var j = 0; j < pokemonHeight.length; j++) {
+var e = pokemonHeight;
+ var result = e;
+
+ if (pokemonHeight[j] > e[j]) {
+  result = 'big';
+} else {
+  result = 'little';
+}
+}
 
  repository.push(pokemonName, pokemonType, pokemonHeight);
 
  for (var i = 0; i < pokemonName.length; i++) {
-   document.write(pokemonName[i]+" "+"(" + pokemonHeight[i]+")"+"<br>");
+   document.write(pokemonName[i]+" "+"(height: " +
+   pokemonHeight[i]+")" + " " + result + "<br>");
  }
