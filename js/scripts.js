@@ -4,6 +4,9 @@
  * Date: 2019-11-11
  */
 
+ // This array will become the repository of Pokémon to display in myapplication
+var repository = [];
+
  // array of pokemon names
  var pokemonName = [
    'Absol',
