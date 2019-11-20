@@ -5,50 +5,80 @@
 */
 
 // This array will become the repository of Pokémon to display in myapplication
-const repository = [];
+var repository = [];
 
-// add several objects (Pokémons)to the array.
-// Each Pokémon needs to have the same keys to avoid errors
+// array of pokemon names
+var pokemonName = [
+  'Absol',
+  'Luxray',
+  'Pikachu',
+  'Milotic',
+  'Eevee',
+];
 
+// array of pokemon types, use array of strings
+var pokemonType = [
+  'water',
+  'electric',
+  'dark',
+  'normal'
+];
 
+// array of pokemon heights, use array of strings
+var pokemonHeight = [
+  1.2,
+  1.4,
+  0.4,
+  6.2,
+  0.3,
+];
+
+repository.push(pokemonName, pokemonType, pokemonHeight);
+
+// attempt adding conditional within the loop
+for (var j = 0; j < pokemonHeight.length; j++) {
+var e = pokemonHeight;
+ var result = e;
+
+ if (pokemonHeight[j] > e[j]) {
+  result = 'big';
+} else {
+  result = 'little';
+}
+}
+// write the Pokémon’s height ánd result next to its name
+ for (var i = 0; i < pokemonName.length; i++) {
+   document.write(pokemonName[i]+" "+"(height: " +
+   pokemonHeight[i]+")" + " " + result + "<br>");
+ }
+
+// defining the pokemons without external input
 var absol = {
-  name:'Absol',
-  height: "1.2",
-  type: 'dark',
+  pokemonName: 'Absol',
+  pokemonHeight: "3'11\"",
+  pokemonType: 'dark',
 };
 
 var luxray = {
-  name:'Luxray',
-  height: "1.4",
-  type: 'electric',
+  pokemonName:'Luxray',
+  pokemonHeight: "4'07\"",
+  pokemonType: 'electric',
 };
 
 var pikachu = {
-  name:'Pikachu',
-  height: "0.4",
-  type: 'electric',
+  pokemonName:'Pikachu',
+  pokemonHeight: "1'04\"",
+  pokemonType: 'electric',
 };
 
 var milotic = {
-  name: 'Milotic',
-  height: "6.2",
-  type: 'water',
+  pokemonName: 'Milotic',
+  pokemonHeight: "20'04\"",
+  pokemonType: 'water',
 };
 
 var eevee = {
-  name:'Eevee',
-  height: "0.3",
-  type: 'normal',
+  pokemonName:'Eevee',
+  pokemonHeight: "1'00\"",
+  pokemonType: 'normal',
 };
-
-repository.push(absol);
-repository.push(luxray);
-repository.push(pikachu);
-repository.push(milotic);
-repository.push(eevee);
-
-
-//You have already filled repository and you just need to iterate over it like:
-//for (var j = 0; j < pokemon.length; j++) {...}
-
-//Next you need to check if the current height of the item is greater than certain value (could be a constant) then assign the special postfix to the string you want to write to the document.
