@@ -6,8 +6,6 @@
 
 // This array will become the repository of Pokémon to display in myapplication
 const pokemon = [];
-// add several objects (Pokémons)to the array.
-// Each Pokémon needs to have the same keys to avoid errors
 
 var absol = {
   name:'Absol',
@@ -45,19 +43,17 @@ pokemon.push(pikachu);
 pokemon.push(milotic);
 pokemon.push(eevee);
 
-
-//var biggest = " Wow,that\'s big!"
+//var currentItemHeight = " Wow,that\'s big!"
 for (var i = 0; i < pokemon.length; i++){
 
-  var biggest = pokemon[i].height;
+  var currentItemHeight = pokemon[i].height;
   var result;
-  if (biggest <= 5) {
+  if (currentItemHeight <= 5) {
   result = "\ ";
   } else {
   result = " Wow,that\'s big!";
   }
 
 document.write("<br>" + pokemon[i].name  +" (" + "height: " +pokemon[i].height+")" + result  +  "<br>");
-// printing repository[i]’s other details
-  // ...
+
 };
