@@ -43,17 +43,7 @@ pokemon.push(pikachu);
 pokemon.push(milotic);
 pokemon.push(eevee);
 
-//var currentItemHeight = " Wow,that\'s big!"
-for (var i = 0; i < pokemon.length; i++){
-
-  var currentItemHeight = pokemon[i].height;
-  var result;
-  if (currentItemHeight <= 5) {
-  result = "\ ";
-  } else {
-  result = " Wow,that\'s big!";
-  }
-
-document.write("<br>" + pokemon[i].name  +" (" + "height: " +pokemon[i].height+")" + result  +  "<br>");
-
-};
+// forEach instead of for i-loop
+pokemon.forEach(function(currentPokemon){
+  document.write("<br>" + pokemon[currentPokemon.name + "<br>"] );
+  });
