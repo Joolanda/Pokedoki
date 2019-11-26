@@ -45,5 +45,5 @@ pokemon.push(eevee);
 
 // forEach instead of for i-loop
 pokemon.forEach(function(currentPokemon){
-  document.write("<br>" + pokemon[currentPokemon.name + "<br>"] );
+  document.write("<br>" + pokemon[currentPokemon.name + currentPokemon.height + "<br>"] );
   });
