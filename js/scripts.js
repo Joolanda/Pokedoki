@@ -44,7 +44,13 @@ pokemon.push(milotic);
 pokemon.push(eevee);
 
 // forEach instead of for i-loop
+<<<<<<< HEAD
  pokemon.forEach(function(currentPokemon){
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
  });
+=======
+pokemon.forEach(function(currentPokemon){
+  document.write("<br>" + pokemon[currentPokemon.name + "<br>"] );
+  });
+>>>>>>> parent of b73b479... Update scripts.js
