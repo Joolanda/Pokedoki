@@ -4,6 +4,9 @@
 * Date: 2019-11-11
 */
 
+// wrap repository array in an IIFE to avoid accidentally accessing the global state.
+(function () {
+  var data = {};
 // This array will become the repository of Pokémon to display in myapplication
 const pokemon = [];
 
@@ -48,3 +51,5 @@ pokemon.push(eevee);
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
  });
+
+})();
