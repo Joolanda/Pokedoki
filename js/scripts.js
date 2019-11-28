@@ -10,6 +10,15 @@
 // This array will become the repository of Pokémon to display in myapplication
 const pokemon = [];
 
+function add(pokemon) {
+  repository.push(pokemon);
+}
+
+function getAll() {
+  return repository;
+}
+
+
 var absol = {
   name:'Absol',
   height: 1.2,
@@ -45,6 +54,11 @@ pokemon.push(luxray);
 pokemon.push(pikachu);
 pokemon.push(milotic);
 pokemon.push(eevee);
+
+return {
+  add: add,
+  getAll: getAll
+};
 
 // forEach instead of for i-loop
  pokemon.forEach(function(currentPokemon){
