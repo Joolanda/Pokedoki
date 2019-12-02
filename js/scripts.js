@@ -19,6 +19,11 @@ function getAll() {
   return repository;
 }
 
+return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
+  add: add,
+  getAll: getAll
+};
+
 })();
 
 var absol = {
@@ -56,11 +61,6 @@ pokemon.push(luxray);
 pokemon.push(pikachu);
 pokemon.push(milotic);
 pokemon.push(eevee);
-
-return {
-  add: add,
-  getAll: getAll
-};
 
 // forEach instead of for i-loop
  pokemon.forEach(function(currentPokemon){
