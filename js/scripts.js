@@ -55,14 +55,16 @@ var eevee = {
   type: 'normal',
 };
 
-pokemon.push(absol);
-pokemon.push(luxray);
-pokemon.push(pikachu);
-pokemon.push(milotic);
-pokemon.push(eevee);
 
+pokemonRepository.add(absol);
+pokemonRepository.add(luxray);
+pokemonRepository.add(pikachu);
+pokemonRepository.add(milotic);
+pokemonRepository.add(eevee);
+
+// use getAll function returned by IIFE in order to retrieve the repository array.
 // forEach instead of for i-loop
- pokemon.forEach(function(currentPokemon){
+pokemonRepository.getAll().forEach(function(currentPokemon){
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
  });
