@@ -19,6 +19,7 @@ function getAll() {
   return repository;
 }
 
+})();
 
 var absol = {
   name:'Absol',
@@ -66,6 +67,3 @@ return {
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
  });
-
-
-})();
