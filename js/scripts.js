@@ -9,7 +9,6 @@
 var pokemonRepository = (function () {
   var repository = [];
 // This array will become the repository of Pokémon to display in myapplication
-const pokemon = [];
 
 function add(pokemon) {
   repository.push(pokemon);
