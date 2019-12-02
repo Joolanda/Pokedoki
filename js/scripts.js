@@ -5,7 +5,8 @@
 */
 
 // wrap repository array in an IIFE to avoid accidentally accessing the global state.
-(function () {
+// create a new pokemonRepository variable
+var pokemonRepository = (function () {
   var repository = [];
 // This array will become the repository of Pokémon to display in myapplication
 const pokemon = [];
@@ -65,5 +66,6 @@ return {
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
  });
+
 
 })();
