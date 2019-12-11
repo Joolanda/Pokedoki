@@ -65,5 +65,17 @@ pokemonRepository.add(eevee);
 //create a variable above the forEach loop block, then assign it the ul element
 var pokemonRepository = document.querySelector(".pokemon-list")
 
-pokemonRepository.getAll().forEach(function(currentPokemon){
+pokemonRepository.getAll().forEach(function(currentPokemon){// create an Li element that contains a button for each pokemon,making sure to create a variable to hold each element of the two
+var $listItem = document.createElement("li");
+// append the 'li' list items along with all child elements into the 'ul' list
+$pokemonList.appendChild($listItem);
+
+var $button = document.createElement("button");
+//  append the button to the list item as its child.
+$listItem.appendChild($button);
+// set innertext of the button to be the Pokemon's name, remember that forEach returns a pokemon in each iteration
+$button.innerText = pokemon.name;
+$button.classList.add("list-button");
+$listItem.classList.add("buttonstyle");
+
  });
