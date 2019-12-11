@@ -88,7 +88,7 @@ return { /*Return All Previous Function In Order To Be Available Outside Of IIFE
 
 
 //create a variable above the forEach loop block, then assign it the ul element
-var pokemonRepository = document.querySelector(".pokemon-list")
+var pokemonRepository = document.querySelector(".pokemon-list");
 
 pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
