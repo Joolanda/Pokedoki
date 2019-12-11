@@ -54,6 +54,9 @@ function add(pokemon) {
     }
   }
 
+function addListItem(pokemon) {
+
+}
 
 function getAll() {
   return repository;
@@ -61,7 +64,8 @@ function getAll() {
 
 return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
   add: add,
-  getAll: getAll
+  getAll: getAll,
+  addListItem: addListItem
 };
 
 })();
