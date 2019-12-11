@@ -37,9 +37,23 @@ var pokemonRepository = (function () {
   ];
 // This array will become the repository of Pokémon to display in myapplication
 
-function add(pokemon) {
+/*function add(pokemon) {
   repository.push(pokemon);
 }
+*/
+function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "type" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("add an object");
+    }
+  }
+
 
 function getAll() {
   return repository;
