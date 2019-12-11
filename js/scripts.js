@@ -7,7 +7,34 @@
 // wrap repository array in an IIFE to avoid accidentally accessing the global state.
 // create a new pokemonRepository variable
 var pokemonRepository = (function () {
-  var repository = [];
+  var repository = [
+    {
+      name:"Absol",
+      height: 1.2,
+      type: "dark"
+    },
+    {
+      name:"Luxray",
+      height: 1.4,
+      type: "electric"
+    },
+    {
+      name:"Pikachu",
+      height: 0.4,
+      type: "electric"
+    },
+    {
+      name: "Milotic",
+      height: 6.2,
+      type: "water"
+    },
+    {
+      name:"Eevee",
+      height: 0.3,
+      type: "normal"
+    }
+
+  ];
 // This array will become the repository of Pokémon to display in myapplication
 
 function add(pokemon) {
@@ -25,42 +52,7 @@ return { /*Return All Previous Function In Order To Be Available Outside Of IIFE
 
 })();
 
-var absol = {
-  name:'Absol',
-  height: 1.2,
-  type: 'dark',
-};
 
-var luxray = {
-  name:'Luxray',
-  height: 1.4,
-  type: 'electric',
-};
-
-var pikachu = {
-  name:'Pikachu',
-  height: 0.4,
-  type: 'electric',
-};
-
-var milotic = {
-  name: 'Milotic',
-  height: 6.2,
-  type: 'water',
-};
-
-var eevee = {
-  name:'Eevee',
-  height: 0.3,
-  type: 'normal',
-};
-
-
-pokemonRepository.add(absol);
-pokemonRepository.add(luxray);
-pokemonRepository.add(pikachu);
-pokemonRepository.add(milotic);
-pokemonRepository.add(eevee);
 
 //create a variable above the forEach loop block, then assign it the ul element
 var pokemonRepository = document.querySelector(".pokemon-list")
