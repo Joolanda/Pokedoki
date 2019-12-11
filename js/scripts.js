@@ -56,6 +56,13 @@ function add(pokemon) {
 
 function addListItem(pokemon) {
 
+  var $listItem = document.createElement("li");
+  var $button = document.createElement("button");
+  $listItem.classList.add("buttonstyle");
+  $pokemonList.appendChild($listItem); // append the 'li' list items along with all child elements into the 'ul' list
+  $button.innerText = pokemon.name;
+  $listItem.appendChild($button); // append the 'button' into the 'li' list items
+
 }
 
 function getAll() {
