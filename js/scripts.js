@@ -62,8 +62,9 @@ pokemonRepository.add(pikachu);
 pokemonRepository.add(milotic);
 pokemonRepository.add(eevee);
 
-// use getAll function returned by IIFE in order to retrieve the repository array.
-// forEach instead of for i-loop
+//create a variable above the forEach loop block, then assign it the ul element
+var pokemonRepository = document.querySelector(".pokemon-list")
+
 pokemonRepository.getAll().forEach(function(currentPokemon){
 document.write("<br>" + [currentPokemon.name +" (" + "height: "
 + currentPokemon.height +")" + "<br>"]);
