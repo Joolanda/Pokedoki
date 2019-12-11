@@ -66,6 +66,4 @@ pokemonRepository.add(eevee);
 var pokemonRepository = document.querySelector(".pokemon-list")
 
 pokemonRepository.getAll().forEach(function(currentPokemon){
-document.write("<br>" + [currentPokemon.name +" (" + "height: "
-+ currentPokemon.height +")" + "<br>"]);
  });
