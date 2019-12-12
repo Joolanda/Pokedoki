@@ -8,24 +8,32 @@
 // create a new pokemonRepository variable
 var pokemonRepository = (function () {
   var repository = [];
-// This array will become the repository of Pokémon to display in myapplication
+  // This array will become the repository of Pokémon to display in myapplication
 
-function add(pokemon) {
-  repository.push(pokemon);
-}
+  function add(pokemon) {
+    repository.push(pokemon);
+  }
 
-function getAll() {
-  return repository;
-}
+  function getAll() {
+    return repository;
+  }
 
-function addListItem(pokemon) {
+  function addListItem(pokemon) {
+    var $pokemonList = document.querySelector("ul");
+    var $listItem = document.createElement("li");
+    var $button = document.createElement("button");
+    $pokemonList.appendChild($listItem);
+    $listItem.appendChild($button);
+    $button.innerText = pokemon.name;
+    $button.classList.add("list-button");
+    $listItem.classList.add("buttonstyle");
+  }
 
-}
-
-return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
-  add: add,
-  getAll: getAll
-};
+  return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem
+  };
 
 })();
 
@@ -66,8 +74,7 @@ pokemonRepository.add(pikachu);
 pokemonRepository.add(milotic);
 pokemonRepository.add(eevee);
 
-//create a variable above the forEach loop block, then assign it the ul element
- var $pokemonList = document.querySelector("ul");
 
 pokemonRepository.getAll().forEach(function(pokemon){
- });
+  pokemonRepository.addListItem(pokemon);
+});
