@@ -38,7 +38,8 @@ var pokemonRepository = (function () {
   return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    showDetails: showDetails
   };
 
 })();
