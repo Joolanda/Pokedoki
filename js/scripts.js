@@ -27,6 +27,9 @@ var pokemonRepository = (function () {
     $button.innerText = pokemon.name;
     $button.classList.add("list-button");
     $listItem.classList.add("buttonstyle");
+    $button.addEventListener("click", function(event) {
+    showDetails(pokemon);
+    });
   }
 
   //Function to show details of each Pokemon
