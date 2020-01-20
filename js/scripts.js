@@ -34,8 +34,8 @@ var pokemonRepository = (function () {
 
   //Function to show details of each Pokemon
     function showDetails(pokemon) {
-       console.log(pokemon.name + pokemon.height + pokemon.type);
-       alert(pokemon.name + pokemon.height + pokemon.type);
+       console.log('${pokemon.name} ${pokemon.height} ${pokemon.type}');
+       alert(pokemon.name + ' ' + pokemon.height + ' ' + pokemon.type);
      }
 
   return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
