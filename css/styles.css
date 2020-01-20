@@ -67,3 +67,15 @@ a {
     display: flex;
     flex-direction: column;
 }
+
+@media all and (max-width: 1024px) {
+	.pokemon-list li {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 630px) {
+	.pokemon-list li {
+		width: 100%;
+	}
+}
