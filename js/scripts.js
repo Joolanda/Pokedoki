@@ -8,6 +8,7 @@
 // create a new pokemonRepository variable
 var pokemonRepository = (function () {
   var repository = [];
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   // This array will become the repository of Pokémon to display in myapplication
 
   function add(pokemon) {
