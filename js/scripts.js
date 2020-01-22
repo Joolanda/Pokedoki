@@ -11,6 +11,23 @@ var pokemonRepository = (function () {
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   // This array will become the repository of Pokémon to display in myapplication
 
+
+  function loadList () {
+    return fetch (apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.result.forEach (function(item) {
+        var pokemon ={
+          name:item.name,
+          detailsUrl:item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
   function add(pokemon) {
     repository.push(pokemon);
   }
@@ -42,8 +59,10 @@ var pokemonRepository = (function () {
   return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
     getAll: getAll,
+    search: search,
     addListItem: addListItem,
-    showDetails: showDetails
+    loadlist: loadlist
+    showDetails: showDetails,
   };
 
 })();
