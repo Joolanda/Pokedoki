@@ -63,12 +63,18 @@ var pokemonRepository = (function () {  //Start of IIFE
       console.error(e);
     });
   }
-  
+
+  function catchAll() { /* Function Used To Return Pokedex Object Array*/
+  return repository;
+  }
+
   //Function to show details of each Pokemon
-    function showDetails(pokemon) {
-       console.log('${pokemon.name} ${pokemon.height} ${pokemon.type}');
-       alert(pokemon.name + ' ' + pokemon.height + ' ' + pokemon.type);
-     }
+    function showDetails(item) {
+      pokemonRepository.loadDetails(item).then(function () {
+      console.log(item);
+      alert('Height:' + ' ' + item.height + ' ' + 'Type: ' + ' ' + item.types);
+      });
+    }
 
   return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
