@@ -4,14 +4,12 @@
 * Date: 2019-11-11
 */
 
-// wrap repository array in an IIFE to avoid accidentally accessing the global state.
-// create a new pokemonRepository variable
 var pokemonRepository = (function () {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   // This array will become the repository of Pokémon to display in myapplication
 
-
+  //here comes loadDetails Function to load pokemon list from API
   function loadList () {
     return fetch (apiUrl).then(function (response) {
       return response.json();
