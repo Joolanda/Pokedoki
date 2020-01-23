@@ -7,7 +7,7 @@
 var pokemonRepository = (function () {  //Start of IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  
+
   //here comes loadDetails Function to load pokemon list from API
   function loadList () {
     return fetch (apiUrl).then(function (response) {
@@ -63,44 +63,6 @@ var pokemonRepository = (function () {  //Start of IIFE
   };
 
 })();
-
-var absol = {
-  name:'Absol',
-  height: 1.2,
-  type: 'dark',
-};
-
-var luxray = {
-  name:'Luxray',
-  height: 1.4,
-  type: 'electric',
-};
-
-var pikachu = {
-  name:'Pikachu',
-  height: 0.4,
-  type: 'electric',
-};
-
-var milotic = {
-  name: 'Milotic',
-  height: 6.2,
-  type: 'water',
-};
-
-var eevee = {
-  name:'Eevee',
-  height: 0.3,
-  type: 'normal',
-};
-
-
-pokemonRepository.add(absol);
-pokemonRepository.add(luxray);
-pokemonRepository.add(pikachu);
-pokemonRepository.add(milotic);
-pokemonRepository.add(eevee);
-
 
 pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
