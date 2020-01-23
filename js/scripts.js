@@ -81,8 +81,8 @@ var pokemonRepository = (function () {  //Start of IIFE
     getAll: getAll,
     search: search,
     addListItem: addListItem,
-    loadlist: loadlist
-    showDetails: showDetails,
+    loadlist: loadlist,
+    showDetails: showDetails
   };
 
 })();
