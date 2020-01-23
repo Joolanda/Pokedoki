@@ -79,9 +79,9 @@ var pokemonRepository = (function () {  //Start of IIFE
   return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
     getAll: getAll,
-    search: search,
     addListItem: addListItem,
     loadlist: loadlist,
+    loadDetails: loadDetails,
     showDetails: showDetails
   };
 
