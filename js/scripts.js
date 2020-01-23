@@ -4,11 +4,10 @@
 * Date: 2019-11-11
 */
 
-var pokemonRepository = (function () {
+var pokemonRepository = (function () {  //Start of IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  // This array will become the repository of Pokémon to display in myapplication
-
+  
   //here comes loadDetails Function to load pokemon list from API
   function loadList () {
     return fetch (apiUrl).then(function (response) {
