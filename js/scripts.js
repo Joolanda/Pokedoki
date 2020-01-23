@@ -87,6 +87,10 @@ var pokemonRepository = (function () {  //Start of IIFE
 
 })();
 
+//Creates list of Pokemon with Pokemon's name on the button
+pokemonRepository.loadList().then(function() {
+// Now the data is loaded!
 pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
+  });
 });
