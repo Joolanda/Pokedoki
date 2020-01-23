@@ -8,6 +8,31 @@ var pokemonRepository = (function () {  //Start of IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+  //Function to add new Pokemon data
+  function add(pokemon) {
+    repository.push(pokemon);
+  }
+
+  //Function to pull all Pokemon data
+  function getAll() {
+    return repository;
+  }
+
+    //Function to add list for each pokemon object
+  function addListItem(pokemon) {
+    var $pokemonList = document.querySelector("ul");
+    var $listItem = document.createElement("li");
+    var $button = document.createElement("button");
+    $pokemonList.appendChild($listItem);
+    $listItem.appendChild($button);
+    $button.innerText = pokemon.name;
+    $button.classList.add("list-button");
+    $listItem.classList.add("buttonstyle");
+    $button.addEventListener("click", function(event) {
+      showDetails(pokemon);
+    })
+  }
+
   //here comes loadDetails Function to load pokemon list from API
   function loadList () {
     return fetch (apiUrl).then(function (response) {
@@ -25,27 +50,6 @@ var pokemonRepository = (function () {  //Start of IIFE
     })
   }
 
-  function add(pokemon) {
-    repository.push(pokemon);
-  }
-
-  function getAll() {
-    return repository;
-  }
-
-  function addListItem(pokemon) {
-    var $pokemonList = document.querySelector("ul");
-    var $listItem = document.createElement("li");
-    var $button = document.createElement("button");
-    $pokemonList.appendChild($listItem);
-    $listItem.appendChild($button);
-    $button.innerText = pokemon.name;
-    $button.classList.add("list-button");
-    $listItem.classList.add("buttonstyle");
-    $button.addEventListener("click", function(event) {
-    showDetails(pokemon);
-    });
-  }
 
   //Function to show details of each Pokemon
     function showDetails(pokemon) {
