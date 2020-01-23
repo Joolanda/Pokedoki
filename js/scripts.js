@@ -33,64 +33,64 @@ var pokemonRepository = (function () {  //Start of IIFE
     })
   }
 
-  //Function to load pokemon list from API
-  function loadList () {
-    return fetch (apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.result.forEach (function(item) {
-        var pokemon ={
-          name:item.name,
-          detailsUrl:item.url
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      console.error(e);
-    })
-  }
+    //Function to load pokemon list from API
+    function loadList() {
+      return fetch(apiUrl).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        json.results.forEach(function (item) {
+          var pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+        });
+      }).catch(function(e) {
+        console.error(e);
+      })
+    }
 
-  function loadDetails(item) {
-    var url = item.detailsUrl;
-    return fetch(url).then(function(response) {
-      return response.json();
-    }).then(function (details) {
-      // Now we add the details to the item
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = Object.keys(details.types);
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-
-  function catchAll() { /* Function Used To Return Pokedex Object Array*/
-  return repository;
-  }
-
-  //Function to show details of each Pokemon
-    function showDetails(item) {
-      pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
-      alert('Height:' + ' ' + item.height + ' ' + 'Type: ' + ' ' + item.types);
+    function loadDetails(item) {
+      var url = item.detailsUrl;
+      return fetch(url).then(function(response) {
+        return response.json();
+      }).then(function (details) {
+        // Now we add the details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = Object.keys(details.types);
+      }).catch(function (e) {
+        console.error(e);
       });
     }
 
-  return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
+    function catchAll() { /* Function Used To Return Pokedex Object Array*/
+    return repository;
+    }
+
+//Function to show details of each Pokemon
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function () {
+    console.log(item);
+    alert('Height:' + ' ' + item.height + ' ' + 'Type: ' + ' ' + item.types);
+    });
+  }
+
+    return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
+      add: add,
+      getAll: getAll,
+      addListItem: addListItem,
+      loadList: loadList,
+      loadDetails: loadDetails,
+      showDetails: showDetails
     };
 
-})();
+    })();
 
-//Creates list of Pokemon with Pokemon's name on the button
-pokemonRepository.loadList().then(function() {
-// Now the data is loaded!
-pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.addListItem(pokemon);
-  });
-});
+    //Creates list of Pokemon with Pokemon's name on the button
+    pokemonRepository.loadList().then(function() {
+      // Now the data is loaded!
+      pokemonRepository.getAll().forEach(function(pokemon){
+        pokemonRepository.addListItem(pokemon);
+      });
+    });
