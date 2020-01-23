@@ -80,10 +80,10 @@ var pokemonRepository = (function () {  //Start of IIFE
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    loadlist: loadlist,
+    loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails
-  };
+    };
 
 })();
 
