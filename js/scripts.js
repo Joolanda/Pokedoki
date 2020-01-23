@@ -33,7 +33,7 @@ var pokemonRepository = (function () {  //Start of IIFE
     })
   }
 
-  //here comes loadDetails Function to load pokemon list from API
+  //Function to load pokemon list from API
   function loadList () {
     return fetch (apiUrl).then(function (response) {
       return response.json();
@@ -50,7 +50,20 @@ var pokemonRepository = (function () {  //Start of IIFE
     })
   }
 
-
+  function loadDetails(item) {
+    var url = item.detailsUrl;
+    return fetch(url).then(function(response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = Object.keys(details.types);
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+  
   //Function to show details of each Pokemon
     function showDetails(pokemon) {
        console.log('${pokemon.name} ${pokemon.height} ${pokemon.type}');
