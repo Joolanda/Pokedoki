@@ -70,8 +70,17 @@ label {
   color: red;
   font-size: 0.8em;
 }
-/*
-Navigation section */
+
+/* modal container */
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  display: block;
+}
+
+/* Navigation section */
 
 /* Profile Section */
 
