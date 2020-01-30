@@ -56,8 +56,22 @@ a {
     width: 33.333%;
 }
 
+/* Form validation styles */
+.input-wrapper {
+  margin-bottom: 10px;
+}
 
-/* Navigation section */
+label {
+  display: inline-block;
+  min-width: 75px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
+/*
+Navigation section */
 
 /* Profile Section */
 
