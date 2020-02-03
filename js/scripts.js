@@ -68,6 +68,48 @@ var pokemonRepository = (function () {  //Start of IIFE
     return repository;
     }
 
+// Function to show a modal with title and text
+(function(){
+function showModal(title, text){
+  var $modalContainer = document.querySelector('#modal-container');
+//clear all existing modal content
+  $modalContainer.innerHTML = '';
+
+  var modal = document.createElement('div');
+  modal.classList.add('modal');
+
+// add the new modal contentType
+var closeButtonElement = document.createElement('button');
+closeButtonElement.classList.add('modal-close');
+closeButtonElement.innerText = 'Close';
+closeButtonElement.addEventListener('click', hideModal);
+
+var titleElement = document.createElement('h1');
+titleElement.innerText = title;
+
+var contentElement = document.createElement('p');
+contentElement.innerText = text;
+
+modal.appendChild(closeButtonElement);
+modal.appendChild(titleElement);
+modal.appendChild(contentElement);
+$modalContainer.appendChild(modal);
+
+$modalContainer.classList.add('is-visible');
+}
+
+document.querySelector('#show-modal').addEventListener('click', () =
+> {
+showModal('Modal title', 'Here comes pokemon details as content');
+});
+
+function hideModal(){
+  var $modalContainer = document.querySelector('#modal-container');
+  $modalContainer.classList.remove('is-visible');
+}
+
+})();
+
 //Function to show details of each Pokemon
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
@@ -84,6 +126,23 @@ var pokemonRepository = (function () {  //Start of IIFE
       loadDetails: loadDetails,
       showDetails: showDetails
     };
+
+    window.addEventListener('keydown', (e) => {
+      var $modalContainer = document.querySelector('#modal-container');
+      if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible'))
+    {
+      hideModal();
+    }
+    });
+
+    $modalContainer.addEventListener('click', (e) => {
+      // this is also trigggered when clicking Inside the Modal
+      // we only want to close if the user clicks directly on the overlay
+      var target = e.target;
+      if (target === $modalContainer) {
+        hideModal();
+      }
+    });
 
     })();
 

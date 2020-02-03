@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <title>Pokedoki JS App</title>
-  </head>
-    <body>
-      <section>
-        <h1>Pokedex Registration</h1>
-        <P>
-          <span>Find</span> out more about me + other creatures:
-        </p>
-        <form id='register-form'>
-          <div class='input-wrapper'>
-            <label for='email'>E-mail </label>
-            <input id='email'>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <title>Pokedoki JS App</title>
+</head>
+<body>
+  <section>
+    <h1>Pokedex Registration</h1>
+    <P>
+      <span>Find</span> out more about me + other creatures:
+    </p>
+    <form id='register-form'>
+      <div class='input-wrapper'>
+        <label for='email'>E-mail </label>
+        <input id='email'>
+      </div>
 
-          <div class='input-wrapper'>
-            <label for='password'>Password</label>
-            <input id='password' type='password'>
-          </div>
+      <div class='input-wrapper'>
+        <label for='password'>Password</label>
+        <input id='password' type='password'>
+      </div>
 
-          <button>Register</button>
-        </form>
+      <button>Register</button>
+    </form>
 
-      </section>
+  </section>
 
-      <header class="header-body">
-        <h1 class="header-title">Pokemon List</h1>
-      </header>
+  <header class="header-body">
+    <h1 class="header-title">Pokemon List</h1>
+  </header>
 
-      <ul class="pokemon-list"></ul>
-        <div class='modal'>
-          <button class="modal-close">X</button>
-      <h1 class="pokemon-name"></h1>
-      <hr>
-      <div class="pokemon-info">
-        <div class="image-div">
-          <img class="pokemon-image" src="">
-        </div>
-        <div class="modal-details">
-          <p class="height">Height: <span class="pokemon-height"></span></p>
-          <br>
-          <p class="type">Type: <span class="pokemon-type"></span></p>
-        </div>
+  <ul class="pokemon-list"></ul>
+  <button id='show-modal'>
+    Show modal
+  </button>
+  <div id='modal-container'></div>
+  <div class='modal'>
+    <button class="modal-close">Close</button>
+    <h1 class="pokemon-name"></h1>
+    <hr>
+    <div class="pokemon-info">
+      <div class="image-div">
+        <img class="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png">
+      </div>
+      <div class="modal-details">
+        <p class="height">Height: <span class="pokemon-height"></span></p>
+        <br>
+        <p class="type">Type: <span class="pokemon-type"></span></p>
       </div>
     </div>
+  </div>
 
-      <div><!--youtube Pikachu Live-->
-        <a href ="https://youtu.be/m8A2joMN-ZE" target="_blank" class="button__secondary">Check out Pikachu's official Audio !!</a>
-        <br>
-        <br>
-      </div>
 
-      <div><!--Social Media Icons-->
-        <a href="https://www.pokemon.com/us/pokedex/" target="_blank"> Search for more Pokémons</a>
-      </div>
+  <div><!--youtube Pikachu Live-->
+    <a href ="https://youtu.be/m8A2joMN-ZE" target="_blank" class="button__secondary">Check out Pikachu's official Audio !!</a>
+    <br>
+    <br>
+  </div>
 
-    <footer class="page-footer">
-      <p>Find me on</p><!--Scoial Media Icons-->
-      <div class="social-media">
-        <a href="#" target="_blank"><img src="img/Github.svg" alt="github"></a>
-        <a href="#" target="_blank"><img src="img/twitter.svg" alt="Twitter"></a>
-        <a href="#" target="_blank"><img src="img/linkedin.svg" alt="LinkedIn"></a>
-      </div>
-    </footer>
+  <div><!--Social Media Icons-->
+    <a href="https://www.pokemon.com/us/pokedex/" target="_blank"> Search for more Pokémons</a>
+  </div>
 
-    <script src="js/promise-polyfill.js"></script>
-    <script src="js/fetch.umd.js"></script>
-    <script src="js/tota11y.min.js"></script>
-    <script src="js/scripts.js"> </script>
-    <!--<script src="js/reg.validation.js"></script>-->
+  <footer class="page-footer">
+    <p>Find me on</p><!--Scoial Media Icons-->
+    <div class="social-media">
+      <a href="#" target="_blank"><img src="img/Github.svg" alt="github"></a>
+      <a href="#" target="_blank"><img src="img/twitter.svg" alt="Twitter"></a>
+      <a href="#" target="_blank"><img src="img/linkedin.svg" alt="LinkedIn"></a>
+    </div>
+  </footer>
 
-    </body>
+  <script src="js/promise-polyfill.js"></script>
+  <script src="js/fetch.umd.js"></script>
+  <script src="js/tota11y.min.js"></script>
+  <script src="js/scripts.js"> </script>
+  <!--<script src="js/reg.validation.js"></script>-->
 
-    </html>
+</body>
+
+</html>
