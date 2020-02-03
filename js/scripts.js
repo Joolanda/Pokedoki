@@ -107,8 +107,7 @@ document.querySelector('#show-modal').addEventListener('click', () => {
 //Function to show details of each Pokemon
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-    console.log(item);
-    alert('Height:' + ' ' + item.height + ' ' + 'Type: ' + ' ' + item.types);
+    showModal(item.name, item.height, item.imgUrl, item.types);
     });
   }
 
