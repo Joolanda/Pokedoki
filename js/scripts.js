@@ -70,7 +70,7 @@ var pokemonRepository = (function () {  //Start of IIFE
 
 // Function to show a modal with title and text
 (function(){
-function showModal(title, text){
+function showModal(title, text) {
   var $modalContainer = document.querySelector('#modal-container');
 //clear all existing modal content
   $modalContainer.innerHTML = '';
@@ -98,15 +98,9 @@ $modalContainer.appendChild(modal);
 $modalContainer.classList.add('is-visible');
 }
 
-document.querySelector('#show-modal').addEventListener('click', () =
-> {
-showModal('Modal title', 'Here comes pokemon details as content');
-});
-
-function hideModal(){
-  var $modalContainer = document.querySelector('#modal-container');
-  $modalContainer.classList.remove('is-visible');
-}
+document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title', 'here come pokemon details!');
+  });
 
 })();
 
@@ -126,6 +120,11 @@ function hideModal(){
       loadDetails: loadDetails,
       showDetails: showDetails
     };
+
+    function hideModal(){
+      var $modalContainer = document.querySelector('#modal-container');
+      $modalContainer.classList.remove('is-visible');
+    }
 
     window.addEventListener('keydown', (e) => {
       var $modalContainer = document.querySelector('#modal-container');
