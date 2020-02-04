@@ -35,21 +35,6 @@ function addListItem(pokemon) {
     return repository;
   }
 
-    //Function to add list for each pokemon object
-  function addListItem(pokemon) {
-    var $pokemonList = document.querySelector("ul");
-    var $listItem = document.createElement("li");
-    var $button = document.createElement("button");
-    $pokemonList.appendChild($listItem);
-    $listItem.appendChild($button);
-    $button.innerText = pokemon.name;
-    $button.classList.add("list-button");
-    $listItem.classList.add("buttonstyle");
-    $button.addEventListener("click", function(event) {
-      showDetails(pokemon);
-    });
-  }
-
   //Function to show details of each Pokemon
     function showDetails(item) {
       pokemonRepository.loadDetails(item).then(function () {
