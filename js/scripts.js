@@ -84,15 +84,20 @@ closeButtonElement.classList.add('modal-close');
 closeButtonElement.innerText = 'Close';
 closeButtonElement.addEventListener('click', hideModal);
 
-var titleElement = document.createElement('h1');
-titleElement.innerText = title;
+var modalTitle = document.createElement('h1');
+modalTitle.innerText = item.name;
+modalTitle.classList.add('modal-title')
 
-var contentElement = document.createElement('p');
-contentElement.innerText = text;
+var modalHeight = document.createElement('p');
+modalHeight.innerText = 'Height: ' + item.height;
+
+var modalType = document.createElement('p');
+modalType.innerText = 'Type: ' + item.types;
 
 modal.appendChild(closeButtonElement);
-modal.appendChild(titleElement);
-modal.appendChild(contentElement);
+modal.appendChild(modalTitle);
+modal.appendChild(modalHeight);
+modal.appendChild(modalType);
 $modalContainer.appendChild(modal);
 
 $modalContainer.classList.add('is-visible');
