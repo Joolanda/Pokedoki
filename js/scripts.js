@@ -34,6 +34,18 @@ var pokemonRepository = (function () {  //Start of IIFE
     })
   }
 
+  //Function to show details of each Pokemon
+    function showDetails(item) {
+      pokemonRepository.loadDetails(item).then(function () {
+      showModal(item);
+      });
+    }
+
+    function add(name) { /*Add Additional Pokemon Attributes To Object Array*/
+      repository.push(name);
+
+  }
+
     //Function to load pokemon list from API
     function loadList() {
       return fetch(apiUrl).then(function (response) {
@@ -131,13 +143,6 @@ $modalContainer.addEventListener('click', (e) => {
 
   });
 
-//Function to show details of each Pokemon
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-    showModal(item.name, item.height, item.imgUrl, item.types);
-    });
-  }
-
     return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
       add: add,
       getAll: getAll,
@@ -151,11 +156,12 @@ $modalContainer.addEventListener('click', (e) => {
 
     })();
 
+        //Creates list of Pokemon with Pokemon's name on the button
     pokemonRepository.loadList().then(function() {
       // Now the data is loaded!
-      pokemonRepository.getAll().forEach(function(pokemon){
+      pokemonRepository.catchAll().forEach(function(pokemon){
         pokemonRepository.addListItem(pokemon);
       });
     });
 
-    })();  
+    })();
