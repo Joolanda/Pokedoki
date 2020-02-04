@@ -69,7 +69,7 @@ var pokemonRepository = (function () {  //Start of IIFE
     }
 
 // Function to show a modal with title and text
-(function(){
+
 function showModal(title, text) {
   var $modalContainer = document.querySelector('#modal-container');
 //clear all existing modal content
@@ -149,28 +149,6 @@ document.querySelector('#show-modal').addEventListener('click', () => {
       hideModal: hideModal,
       showDetails: showDetails
     };
-
-    function hideModal(){
-      var $modalContainer = document.querySelector('#modal-container');
-      $modalContainer.classList.remove('is-visible');
-    }
-
-    window.addEventListener('keydown', (e) => {
-      var $modalContainer = document.querySelector('#modal-container');
-      if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible'))
-    {
-      hideModal();
-    }
-    });
-
-    $modalContainer.addEventListener('click', (e) => {
-      // this is also trigggered when clicking Inside the Modal
-      // we only want to close if the user clicks directly on the overlay
-      var target = e.target;
-      if (target === $modalContainer) {
-        hideModal();
-      }
-    });
 
     })();
 
