@@ -70,6 +70,9 @@ var pokemonRepository = (function () {  //Start of IIFE
     }
 
 // Function to show a modal with title and text
+(function() {
+  var $modalContainer = document.querySelector('#modal-container');
+
 function showModal(item) {
 //clear all existing modal content
   $modalContainer.innerHTML = '';
@@ -89,8 +92,10 @@ modalTitle.classList.add('modal-title')
 
 var modalHeight = document.createElement('p');
 modalHeight.innerText = 'Height: ' + item.height;
+modalHeight.classList.add('modal-details')
 
 var modalType = document.createElement('p');
+modalType.classList.add('modal-details')
 modalType.innerText = 'Type: ' + item.types;
 
 modal.appendChild(closeButtonElement);
@@ -102,11 +107,29 @@ $modalContainer.appendChild(modal);
 $modalContainer.classList.add('is-visible');
 }
 
-document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'here come pokemon details!');
-  });
+function hideModal() {
+  $modalContainer.classList.remove('is-visible');
+}
 
-})();
+document.querySelector('#show-modal').addEventListener('click', () => {
+  showModal('Modal title', 'This is the modal content!');
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
+    hideModal();
+  }
+});
+
+$modalContainer.addEventListener('click', (e) => {
+  // Since this is also triggered when clicking INSIDE the modal container,
+  // We only want to close if the user clicks directly on the overlay
+  var target = e.target;
+  if (target === $modalContainer) {
+    hideModal();
+  }
+
+  });
 
 //Function to show details of each Pokemon
   function showDetails(item) {
@@ -114,28 +137,6 @@ document.querySelector('#show-modal').addEventListener('click', () => {
     showModal(item.name, item.height, item.imgUrl, item.types);
     });
   }
-
-  function hideModal(){
-    var $modalContainer = document.querySelector('#modal-container');
-    $modalContainer.classList.remove('is-visible');
-  }
-
-  window.addEventListener('keydown', (e) => {
-    var $modalContainer = document.querySelector('#modal-container');
-    if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible'))
-  {
-    hideModal();
-  }
-  });
-
-  $modalContainer.addEventListener('click', (e) => {
-    // this is also trigggered when clicking Inside the Modal
-    // we only want to close if the user clicks directly on the overlay
-    var target = e.target;
-    if (target === $modalContainer) {
-      hideModal();
-    }
-  });
 
     return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
       add: add,
@@ -145,8 +146,7 @@ document.querySelector('#show-modal').addEventListener('click', () => {
       loadDetails: loadDetails,
       showDetails: showDetails,
       showModal: showModal,
-      hideModal: hideModal,
-      showDetails: showDetails
+      hideModal: hideModal
     };
 
     })();
@@ -157,3 +157,5 @@ document.querySelector('#show-modal').addEventListener('click', () => {
         pokemonRepository.addListItem(pokemon);
       });
     });
+
+    })();  
