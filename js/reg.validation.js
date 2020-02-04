@@ -3,6 +3,22 @@
   var $emailInput = document.querySelector('#email');
   var $passwordInput = document.querySelector('#password');
 
+  function showErrorMessage(&input, message) {
+    var $container = $input.parentElement; // The .input wrapper
+
+  // remove an existing console.error;
+  var error = $container.querySelector('.error-message');
+  if(error) {
+    $container.removeChild(error);
+  }
+  // now add the error, if the message is not empty
+  if (message) {
+    var error = document.createElement('div');
+    error.classList.add('error-message');
+    $container.appendChild(error);
+  }
+}
+
   function validateEmail() {
     var value = $emailInput.value;
 
