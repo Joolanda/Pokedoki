@@ -69,9 +69,7 @@ var pokemonRepository = (function () {  //Start of IIFE
     }
 
 // Function to show a modal with title and text
-
-function showModal(title, text) {
-  var $modalContainer = document.querySelector('#modal-container');
+function showModal(item) {
 //clear all existing modal content
   $modalContainer.innerHTML = '';
 
@@ -152,7 +150,6 @@ document.querySelector('#show-modal').addEventListener('click', () => {
 
     })();
 
-    //Creates list of Pokemon with Pokemon's name on the button
     pokemonRepository.loadList().then(function() {
       // Now the data is loaded!
       pokemonRepository.getAll().forEach(function(pokemon){
