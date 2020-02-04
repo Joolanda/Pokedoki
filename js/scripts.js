@@ -116,12 +116,37 @@ document.querySelector('#show-modal').addEventListener('click', () => {
     });
   }
 
+  function hideModal(){
+    var $modalContainer = document.querySelector('#modal-container');
+    $modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    var $modalContainer = document.querySelector('#modal-container');
+    if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible'))
+  {
+    hideModal();
+  }
+  });
+
+  $modalContainer.addEventListener('click', (e) => {
+    // this is also trigggered when clicking Inside the Modal
+    // we only want to close if the user clicks directly on the overlay
+    var target = e.target;
+    if (target === $modalContainer) {
+      hideModal();
+    }
+  });
+
     return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
       add: add,
       getAll: getAll,
       addListItem: addListItem,
       loadList: loadList,
       loadDetails: loadDetails,
+      showDetails: showDetails,
+      showModal: showModal,
+      hideModal: hideModal,
       showDetails: showDetails
     };
 
