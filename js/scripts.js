@@ -7,6 +7,7 @@
 var pokemonRepository = (function () {  //Start of IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  var $modalContainer = document.querySelector('#modal-container');
 
   //Function to add new Pokemon data
   function add(pokemon) {
