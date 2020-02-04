@@ -7,7 +7,22 @@
 var pokemonRepository = (function () {  //Start of IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var $modalContainer = document.querySelector('#modal-container');
+
+
+  //Function to add list for each pokemon object
+function addListItem(pokemon) {
+  var $pokemonList = document.querySelector("ul");
+  var $listItem = document.createElement("li");
+  var $button = document.createElement("button");
+  $pokemonList.appendChild($listItem);
+  $listItem.appendChild($button);
+  $button.innerText = pokemon.name;
+  $button.classList.add("list-button");
+  $listItem.classList.add("buttonstyle");
+  $button.addEventListener("click", function(event) {
+    showDetails(pokemon);
+  });
+}
 
   //Function to add new Pokemon data
   function add(pokemon) {
@@ -31,7 +46,7 @@ var pokemonRepository = (function () {  //Start of IIFE
     $listItem.classList.add("buttonstyle");
     $button.addEventListener("click", function(event) {
       showDetails(pokemon);
-    })
+    });
   }
 
   //Function to show details of each Pokemon
@@ -44,6 +59,10 @@ var pokemonRepository = (function () {  //Start of IIFE
     function add(name) { /*Add Additional Pokemon Attributes To Object Array*/
       repository.push(name);
 
+  }
+
+  function catchAll() { /* Function Used To Return Pokedex Object Array*/
+  return repository;
   }
 
     //Function to load pokemon list from API
@@ -60,7 +79,7 @@ var pokemonRepository = (function () {  //Start of IIFE
         });
       }).catch(function(e) {
         console.error(e);
-      })
+      });
     }
 
     function loadDetails(item) {
@@ -77,20 +96,18 @@ var pokemonRepository = (function () {  //Start of IIFE
       });
     }
 
-    function catchAll() { /* Function Used To Return Pokedex Object Array*/
-    return repository;
-    }
-
 // Function to show a modal with title and text
 
 function showModal(item) {
+  var $modalContainer = document.querySelector('#modal-container');
 //clear all existing modal content
   $modalContainer.innerHTML = '';
+  $modalContainer.classList.add('is-visible');
 
   var modal = document.createElement('div');
   modal.classList.add('modal');
 
-// add the new modal contentType
+// add the new modal content
 var closeButtonElement = document.createElement('button');
 closeButtonElement.classList.add('modal-close');
 closeButtonElement.innerText = 'Close';
@@ -113,11 +130,10 @@ modal.appendChild(modalTitle);
 modal.appendChild(modalHeight);
 modal.appendChild(modalType);
 $modalContainer.appendChild(modal);
-
-$modalContainer.classList.add('is-visible');
 }
 
 function hideModal() {
+  var $modalContainer = document.querySelector('#modal-container');
   $modalContainer.classList.remove('is-visible');
 }
 
@@ -126,6 +142,7 @@ document.querySelector('#show-modal').addEventListener('click', () => {
 });
 
 window.addEventListener('keydown', (e) => {
+  var $modalContainer = document.querySelector('#modal-container');
   if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
     hideModal();
   }
@@ -151,7 +168,7 @@ $modalContainer.addEventListener('click', (e) => {
       showModal: showModal,
       hideModal: hideModal
     };
-
+})();
         //Creates list of Pokemon with Pokemon's name on the button
     pokemonRepository.loadList().then(function() {
       // Now the data is loaded!
@@ -159,5 +176,3 @@ $modalContainer.addEventListener('click', (e) => {
         pokemonRepository.addListItem(pokemon);
       });
     });
-
-    })();
