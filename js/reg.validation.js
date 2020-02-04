@@ -3,7 +3,7 @@
   var $emailInput = document.querySelector('#email');
   var $passwordInput = document.querySelector('#password');
 
-  function showErrorMessage(&input, message) {
+  function showErrorMessage($input, message) {
     var $container = $input.parentElement; // The .input wrapper
 
   // remove an existing console.error;
@@ -15,6 +15,7 @@
   if (message) {
     var error = document.createElement('div');
     error.classList.add('error-message');
+    error.innerText = message;
     $container.appendChild(error);
   }
 }
@@ -55,7 +56,7 @@
     function validateForm() {
       var isValidEmail = validateEmail();
       var isValidPassword = validatePassword();
-      return isValidEmail() && isValidPassword();
+      return isValidEmail && isValidPassword;
     }
 
     $form.addEventListener('submit', (e) => {
@@ -63,5 +64,8 @@
       if (validateForm()) {
         alert('Success!');
       }
-    })
+    });
+
+    $emailInput.addEventListener('input', validateEmail);
+    $passwordInput.addEventListener('input', validatePassword);
   })();
