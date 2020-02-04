@@ -11,7 +11,7 @@ var pokemonRepository = (function () {  //Start of IIFE
 
   //Function to add list for each pokemon object
 function addListItem(pokemon) {
-  var $pokemonList = document.querySelector("ul");
+  var $pokemonList = document.querySelector('.pokemon-list');
   var $listItem = document.createElement("li");
   var $button = document.createElement("button");
   $pokemonList.appendChild($listItem);
@@ -160,6 +160,7 @@ $modalContainer.addEventListener('click', (e) => {
 
     return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
       add: add,
+      catchAll: catchAll,
       getAll: getAll,
       addListItem: addListItem,
       loadList: loadList,
