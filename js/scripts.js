@@ -101,7 +101,12 @@ closeButtonElement.addEventListener('click', hideModal);
 
 var modalTitle = document.createElement('h1');
 modalTitle.innerText = item.name;
-modalTitle.classList.add('modal-title')
+modalTitle.classList.add('modal-title');
+    
+// Pokemon display image in modal
+//var imageElement = document.dreateElement('img);
+//imageElement.classList.add('modal-img');
+//imageElement.src = item.imageUrl;
 
 var modalHeight = document.createElement('p');
 modalHeight.innerText = 'Height: ' + item.height;
@@ -112,6 +117,7 @@ modalType.classList.add('modal-details')
 modalType.innerText = 'Type: ' + item.types;
 
 modal.appendChild(closeButtonElement);
+//modal.appendChild(imageElement);
 modal.appendChild(modalTitle);
 modal.appendChild(modalHeight);
 modal.appendChild(modalType);
@@ -159,7 +165,7 @@ $modalContainer.addEventListener('click', (e) => {
         //Creates list of Pokemon with Pokemon's name on the button
     pokemonRepository.loadList().then(function() {
       // Now the data is loaded!
-      pokemonRepository.catchAll().forEach(function(pokemon){
+      pokemonRepository.getAll().forEach(function(pokemon){
         pokemonRepository.addListItem(pokemon);
       });
     });
