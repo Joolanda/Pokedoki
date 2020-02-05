@@ -121,10 +121,18 @@ label {
 }
 
 .modal h1 {
+  background: #fff;
   margin-top: 0;
 }
 .modal p {
   margin-bottom: 0;
+}
+
+.modal-img {
+  margin: auto;
+  display: block;
+  width: 150px;
+  height: 150px;
 }
 /* Navigation section */
 

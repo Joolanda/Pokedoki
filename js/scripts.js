@@ -102,11 +102,6 @@ closeButtonElement.addEventListener('click', hideModal);
 var modalTitle = document.createElement('h1');
 modalTitle.innerText = item.name;
 modalTitle.classList.add('modal-title');
-    
-// Pokemon display image in modal
-//var imageElement = document.dreateElement('img);
-//imageElement.classList.add('modal-img');
-//imageElement.src = item.imageUrl;
 
 var modalHeight = document.createElement('p');
 modalHeight.innerText = 'Height: ' + item.height;
@@ -116,8 +111,13 @@ var modalType = document.createElement('p');
 modalType.classList.add('modal-details')
 modalType.innerText = 'Type: ' + item.types;
 
+//Pokemon display image in modal
+var imageElement = document.createElement('img');
+imageElement.classList.add('modal-img');
+imageElement.src = item.imageUrl;
+
 modal.appendChild(closeButtonElement);
-//modal.appendChild(imageElement);
+modal.appendChild(imageElement);
 modal.appendChild(modalTitle);
 modal.appendChild(modalHeight);
 modal.appendChild(modalType);
