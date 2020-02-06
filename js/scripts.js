@@ -167,6 +167,6 @@ pokemonRepository.loadList().then(function() {
 //Function to show details of each Pokemon
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
-    showModal(item);
+    pokemonRepository.showModal(item);
   });
 }
