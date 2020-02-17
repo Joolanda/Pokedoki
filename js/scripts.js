@@ -29,7 +29,7 @@ var pokemonRepository = (function () {
 
           $pokemonList.append($listItem);
           $listItem.append($button);
-          $button.innerText = pokemon.name; // take a better look at this..rewrite
+          $button.html(pokemon.name class='list-button');
           $button.classList.add("list-button"); // take a better look at this..rewrite
           $listItem.classList.add("buttonstyle"); // take a better look at this..rewrite
           $button.on("click", function() {
@@ -87,18 +87,15 @@ var pokemonRepository = (function () {
             var $modalTitle = $('h1');
             $modalTitle.html(item.name class='modal-title');
 
-            var modalHeight = document.createElement('p');
-            modalHeight.innerText = 'Height: ' + item.height;
-            modalHeight.classList.add('modal-details')
+            var $modalHeight = $('p');
+            $modalHeight.html('Height: ' + item.height class='modal-details') ;
 
-            var modalType = document.createElement('p');
-            modalType.classList.add('modal-details')
-            modalType.innerText = 'Type: ' + item.types;
+            var $modalType = $('p');
+            $modalType.html('Type: ' + item.types class='modal-details');
 
             //Pokemon display image in modal
-            var imageElement = document.createElement('img');
-            imageElement.classList.add('modal-img');
-            imageElement.src = item.imageUrl;
+            var $imageElement = $('img');
+            $imageElement.html(item.imageUrl class='modal-img');
 
             $modal.append($closeButtonElement);
             $modal.append($imageElement);
