@@ -25,13 +25,11 @@ var pokemonRepository = (function () {
         function addListItem(pokemon) {
           var $pokemonList = $('.pokemon-list');
           var $listItem = $("<li></li>");
-          var $button = $(<div class='list-button'>);
+          var $button = $('<button class='list-button'>' + pokemon.name + '</button>');
 
           $pokemonList.append($listItem);
-          $listItem.append($button);
+          $listItem.append($button class='button-style';
           $button.html(pokemon.name class='list-button');
-          $button.classList.add("list-button"); // take a better look at this..rewrite
-          $listItem.classList.add("buttonstyle"); // take a better look at this..rewrite
           $button.on("click", function() {
             showDetails(pokemon);
             });
