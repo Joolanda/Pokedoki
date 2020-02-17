@@ -47,10 +47,8 @@ var pokemonRepository = (function () {
 
           //Function to load pokemon list from API
           function loadList() {
-            return fetch(apiUrl).then(function (response) {
-              return response.json();
-            }).then(function (json) {
-              json.results.forEach(function (item) {
+            return $ajax(apiUrl), {dataType: 'json'}).then(function (item) {
+              $.each(item.results, function(index, item) {
                 var pokemon = {
                   name: item.name,
                   detailsUrl: item.url
