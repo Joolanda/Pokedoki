@@ -118,7 +118,6 @@ var pokemonRepository = (function () {
             });
           }
 
-
         return { /*Return All Previous Function In Order To Be Available Outside Of IIFE */
           add: add,
           catchAll: catchAll,
