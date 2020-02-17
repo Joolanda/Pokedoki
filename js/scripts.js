@@ -62,7 +62,7 @@ var pokemonRepository = (function () {
 
           function loadDetails(item) {
             var url = item.detailsUrl;
-            return fetch(url).then(function(response) {
+            return $ajax(url, {dataType: 'json'}).then(function(response) {
               return response.json();
             }).then(function (details) {
             // Now we add the details to the item
