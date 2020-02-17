@@ -8,7 +8,8 @@ var pokemonRepository = (function () {
   "use strict";
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var $modalContainer = document.querySelector('#modal-container');
+  var $modalContainer = $('#modal-container');
+  var $pokemonList = $('ul');
 
       //Function to add new Pokemon data
       function add(pokemon) {
@@ -22,16 +23,16 @@ var pokemonRepository = (function () {
 
         //Function to add list for each pokemon object
         function addListItem(pokemon) {
-          var $pokemonList = document.querySelector('.pokemon-list');
-          var $listItem = document.createElement("li");
-          var $button = document.createElement("button");
+          var $pokemonList = $('.pokemon-list');
+          var $listItem = $("<li></li>");
+          var $button = $("<div class='list-button'>);
 
-          $pokemonList.appendChild($listItem);
-          $listItem.appendChild($button);
-          $button.innerText = pokemon.name;
-          $button.classList.add("list-button");
-          $listItem.classList.add("buttonstyle");
-          $button.addEventListener("click", function(event) {
+          $pokemonList.append($listItem);
+          $listItem.append($button);
+          $button.innerText = pokemon.name; // take a better look at this..rewrite
+          $button.classList.add("list-button"); // take a better look at this..rewrite
+          $listItem.classList.add("buttonstyle"); // take a better look at this..rewrite
+          $button.on("click", function() {
             showDetails(pokemon);
             });
           }
