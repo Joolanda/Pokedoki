@@ -24,11 +24,11 @@ var pokemonRepository = (function () {
         //Function to add list for each pokemon object
         function addListItem(pokemon) {
           var $pokemonList = $('.pokemon-list');
-          var $listItem = $("<li></li>");
+          var $listItem = $("<li class="list-group-item"></li>");
           var $button = $('<button class="list-button">' + pokemon.name + '</button>');
 
-          $pokemonList.append($listItem);
-          $listItem.append($button);
+          $(pokemonList).append($listItem);
+          $(listItem).append($button);
           $button.on("click", function() {
             showDetails(pokemon);
             });
@@ -73,12 +73,12 @@ var pokemonRepository = (function () {
 
           function showModal(item) {
             //clear all existing modal content
-            $modalContainer.html('', class='is-visible');
+            $modalContainer.html(' ', class="is-visible");
 
-            var $modal = $('<div class='modal'></div>');
+            var $modal = $('<div class="modal"></div>');
 
             // add the new modal content
-            var $closeButtonElement = $('<button='modal-close'>Close</button>'');
+            var $closeButtonElement = $('<button="modal-close">Close</button>');
             $closeButtonElement.on('click', function(hideModal);
 
             var $modalTitle = $('h1');
