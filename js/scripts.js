@@ -44,7 +44,7 @@ var pokemonRepository = (function () {
 
           //Function to load pokemon list from API
           function loadList() {
-            return $.ajax(apiUrl), {dataType: 'json'}).then(function (item) {
+            return $.ajax(apiUrl, {dataType: 'json'}).then(function (item) {
               $.each(item.results, function(index, item) {
                 var pokemon = {
                   name: item.name,
@@ -80,7 +80,7 @@ var pokemonRepository = (function () {
             // add the new modal content
             var $closeButtonElement = $('<button></button>');
             $closeButtonElement.html('Close' class='modal-close');
-            $closeButtonElement.on('click', function(hideModal));
+            $closeButtonElement.on('click', function(hideModal);
 
             var $modalTitle = $('h1');
             $modalTitle.html(item.name class='modal-title');
