@@ -78,7 +78,8 @@ var pokemonRepository = (function () {
             var $modal = $('<div class="modal"></div>');
 
             // add the new modal content
-            var $closeButtonElement = $('<button="modal-close">'Close'</button>');
+            var $closeButtonElement = $('<button></button>');
+            $closeButtonElement.html('Close' class='modal-close');
             $closeButtonElement.on('click', function(hideModal);
 
             var $modalTitle = $('h1');
