@@ -29,6 +29,7 @@ var pokemonRepository = (function () {
 
           $(pokemonList).append($listItem);
           $(listItem).append($button);
+          $(button).html(pokemon.name);
           $button.on("click", function() {
             showDetails(pokemon);
             });
@@ -75,10 +76,12 @@ var pokemonRepository = (function () {
             // Clear all content for the selected element
             $modalContainer.html('');
             $modalContainer.addClass('is-visible');
+
             var $modal = $('<div class="modal"></div>');
 
             // add the new modal content
             var $closeButtonElement = $('<button></button>');
+            
             $closeButtonElement.html('Close' class='modal-close');
             $closeButtonElement.on('click', function(hideModal);
 
