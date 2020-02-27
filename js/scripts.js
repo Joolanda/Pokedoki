@@ -8,8 +8,6 @@ var pokemonRepository = (function() {
   "use strict";
   var repository = [];
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  var $modalContainer = $("#modal-container");
-  var $pokemonList = $("ul");
 
   //Function to add new Pokemon data
   function add(pokemon) {
@@ -66,12 +64,17 @@ var pokemonRepository = (function() {
 
   function loadDetails(item) {
     var url = item.detailsUrl;
-    return $.ajax(url, { dataType: "json" })
+    return $.ajax(url)
       .then(function(details) {
         // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = Object.keys(details.types);
+        // loop for each of the pokemon types
+        item.types = [];
+        for (var i = 0; i < details.types.length; i++) {
+          item.types.push(details.types[i].type.name);
+        }
+  
       })
       .catch(function(e) {
         console.error(e);
@@ -81,6 +84,7 @@ var pokemonRepository = (function() {
   // Function to show a modal with title and text
 
   function showModal(item) {
+    var $modalContainer = $("#modal-container");
     // Clear all content for the selected element
     $modalContainer.empty();
     // Add class to show modal
@@ -118,7 +122,8 @@ var pokemonRepository = (function() {
   //Function to show details of each Pokemon
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function() {
-      pokemonRepository.showModal(item);
+      console.log(item);
+      showModal(item);
     });
   }
 
