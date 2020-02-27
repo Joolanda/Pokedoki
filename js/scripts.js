@@ -23,9 +23,9 @@ var pokemonRepository = (function () {
   //Function to add list for each pokemon object
   function addListItem(pokemon) {
     var $pokemonList = $('.pokemon-list')
-    var $listItem = $('<li></li>');
-    $pokemonList.append($listItem);
+    var $listItem = $('<li class="buttonstyle"></li>');
     var $button = $('<button class="list-button">' + pokemon.name + '</button>');
+    $pokemonList.append($listItem);
     $listItem.append($button);
     $button.on("click", function() {
       showDetails(pokemon);
