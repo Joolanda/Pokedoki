@@ -119,8 +119,7 @@ var pokemonRepository = (function () {
   //Function to show details of each Pokemon
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function() {
-      console.log(item);
-      showModal(item);
+      pokemonRepository.showModal(item);
     });
   }
 
