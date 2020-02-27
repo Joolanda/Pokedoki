@@ -91,28 +91,21 @@ var pokemonRepository = (function () {
     var modal = $('<div class="modal"></div>');
 
     // add the new modal content
-    var closeButtonElement = $('<button class="modal-close">Close</button>');
     var closeButtonElement = $('<button class="modal-close">' Close '</button>');
     closeButtonElement.on("click", hideModal);
 
-    var modalTitle = $("<h1>" + item.name + "</h1>");
     var modalTitle = $('<h1 class="modal-title">' + item.name + '</h1>');
 
-    var modalHeight = $("<p>" + "height : " + item.height + "m" + "</p>");
     var modalHeight = $('<p class="modal-details">' + 'height : ' + item.height + "m" + '</p>');
 
-    var modalType = $("<p>" + "Type : " + item.types + "</p>");
     var modalType = $('<p class="modal-details">' + 'Type : ' + item.types + '</p>');
 
     //Pokemon display image in modal
     var $imageElement = $('<img class="modal-img">');
-    imageElement.attr("src", item.imageUrl);
-    //var $imageElement = $('<img class="modal-img">');
-    //imageElement.attr('src', item.imageUrl);
+    imageElement.attr('src', item.imageUrl);
 
     modal.append(closeButtonElement);
     modal.append(imageElement);
-    //modal.append(imageElement);
     modal.append(modalTitle);
     modal.append(modalHeight);
     modal.append(modalType);
