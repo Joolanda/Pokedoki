@@ -4,12 +4,11 @@
  * Date: 2019-11-11
  */
 // START of IIFE for Pokedex repository
-var pokemonRepository = (function() {
-  "use strict";
+var pokemonRepository = (function () {
   var repository = [];
-  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  var $pokemonList = $("ul");
-  var $modalContainer = $("#modal-container");
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  var $pokemonList = $('<ul>');
+  var $modalContainer = $('#modal-container');
 
   //Function to add new Pokemon data
   function add(pokemon) {
@@ -23,15 +22,11 @@ var pokemonRepository = (function() {
 
   //Function to add list for each pokemon object
   function addListItem(pokemon) {
-    var $pokemonList = $(".pokemon-list");
-    var $listItem = $('<li class="list-group-item"></li>');
-    var $button = $(
-      '<button class="list-button">' + pokemon.name + "</button>"
-    );
-
-    $pokemonList.append($listItem);
+    var $pokemonList = $('.pokemon-list')
+    var $listItem = $('<li></li>');
+    $pokemonList.append($listItem); 
+    var $button = $('<button class="list-button">' + pokemon.name + '</button>');
     $listItem.append($button);
-    $(button).html(pokemon.name);
     $button.on("click", function() {
       showDetails(pokemon);
     });
