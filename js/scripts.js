@@ -4,11 +4,11 @@
  * Date: 2019-11-11
  */
 // START of IIFE for Pokedex repository
-var pokemonRepository = (function () {
+var pokemonRepository = (function() {
   var repository = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var $pokemonList = $('ul');
-  var $modalContainer = $('#modal-container');
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  var $pokemonList = $("ul");
+  var $modalContainer = $("#modal-container");
   var $modal = $('<div class="modal"></div>');
 
   //Function to add new Pokemon data
@@ -23,9 +23,11 @@ var pokemonRepository = (function () {
 
   //Function to add list for each pokemon object
   function addListItem(pokemon) {
-    var $pokemonList = $('.pokemon-list')
+    var $pokemonList = $(".pokemon-list");
     var $listItem = $('<li class="buttonstyle"></li>');
-    var $button = $('<button class="list-button">' + pokemon.name + '</button>');
+    var $button = $(
+      '<button class="list-button">' + pokemon.name + "</button>"
+    );
     $pokemonList.append($listItem);
     $listItem.append($button);
     $button.on("click", function() {
@@ -72,7 +74,6 @@ var pokemonRepository = (function () {
         for (var i = 0; i < details.types.length; i++) {
           item.types.push(details.types[i].type.name);
         }
-
       })
       .catch(function(e) {
         console.error(e);
@@ -91,18 +92,24 @@ var pokemonRepository = (function () {
     var modal = $('<div class="modal"></div>');
 
     // add the new modal content
-    var closeButtonElement = $('<button class="modal-close">' + 'Close' + '</button>');
+    var closeButtonElement = $(
+      '<button class="modal-close">' + "Close" + "</button>"
+    );
     closeButtonElement.on("click", hideModal);
 
-    var modalTitle = $('<h1 class="modal-title">' + item.name + '</h1>');
+    var modalTitle = $('<h1 class="modal-title">' + item.name + "</h1>");
 
-    var modalHeight = $('<p class="modal-details">' + 'height : ' + item.height + "m" + '</p>');
+    var modalHeight = $(
+      '<p class="modal-details">' + "height : " + item.height + "m" + "</p>"
+    );
 
-    var modalType = $('<p class="modal-details">' + 'Type : ' + item.types + '</p>');
+    var modalType = $(
+      '<p class="modal-details">' + "Type : " + item.types + "</p>"
+    );
 
     //Pokemon display image in modal
     var $imageElement = $('<img class="modal-img">');
-    imageElement.attr('src', item.imageUrl);
+    imageElement.attr("src", item.imageUrl);
 
     modal.append(closeButtonElement);
     modal.append(imageElement);
