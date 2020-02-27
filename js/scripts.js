@@ -7,7 +7,7 @@
 var pokemonRepository = (function () {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var $pokemonList = $('<ul>');
+  var $pokemonList = $('ul');
   var $modalContainer = $('#modal-container');
 
   //Function to add new Pokemon data
@@ -24,7 +24,7 @@ var pokemonRepository = (function () {
   function addListItem(pokemon) {
     var $pokemonList = $('.pokemon-list')
     var $listItem = $('<li></li>');
-    $pokemonList.append($listItem); 
+    $pokemonList.append($listItem);
     var $button = $('<button class="list-button">' + pokemon.name + '</button>');
     $listItem.append($button);
     $button.on("click", function() {
@@ -71,7 +71,7 @@ var pokemonRepository = (function () {
         for (var i = 0; i < details.types.length; i++) {
           item.types.push(details.types[i].type.name);
         }
-  
+
       })
       .catch(function(e) {
         console.error(e);
