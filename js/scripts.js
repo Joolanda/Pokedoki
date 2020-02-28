@@ -7,9 +7,7 @@
 var pokemonRepository = (function() {
   var repository = [];
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  var $pokemonList = $("ul");
   var $modalContainer = $("#modal-container");
-  var $modal = $('<div class="modal"></div>');
 
   //Function to add new Pokemon data
   function add(pokemon) {
