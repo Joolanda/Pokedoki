@@ -45,9 +45,10 @@ var pokemonRepository = (function() {
 
   //Function to load pokemon list from API
   function loadList() {
-    return $.ajax(apiUrl, { dataType: "json" })
-      .then(function(item) {
-        $.each(item.results, function(index, item) {
+    return $.ajax(apiUrl, { dataType: "json" }).then(function(responseJSON) {
+        return responseJSON;
+      }).then(function(json) {
+        json.results.forEach(function(item){
           var pokemon = {
             name: item.name,
             detailsUrl: item.url
@@ -62,20 +63,18 @@ var pokemonRepository = (function() {
 
   function loadDetails(item) {
     var url = item.detailsUrl;
-    return $.ajax(url)
-      .then(function(details) {
+    return $.ajax(url, {dataType: 'json'}).then(function(responseJSON) {
+      return responseJSON;
+    }).then(function(details) {
         // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         // loop for each of the pokemon types
-        item.types = [];
-        for (var i = 0; i < details.types.length; i++) {
-          item.types.push(details.types[i].type.name);
-        }
+        item.types = Object.keys(details.types);
       })
       .catch(function(e) {
         console.error(e);
-      });
+      })
   }
 
   // Function to show a modal with title and text
