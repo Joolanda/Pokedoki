@@ -80,7 +80,6 @@ var pokemonRepository = (function() {
   // Function to show a modal with title and text
 
   function showModal(item) {
-    var $modalContainer = $("#modal-container");
     // Clear all content for the selected element
     $modalContainer.empty();
     // Add class to show modal
@@ -105,7 +104,7 @@ var pokemonRepository = (function() {
     );
 
     //Pokemon display image in modal
-    var $imageElement = $('<img class="modal-img">');
+    var imageElement = $('<img class="modal-img">');
     imageElement.attr("src", item.imageUrl);
 
     modal.append(closeButtonElement);
