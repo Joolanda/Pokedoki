@@ -40,7 +40,26 @@
     <header class="header-body">
       <h1 class="header-title">Pokédex</h1>
     </header>
-
+    <div class="pokemon-list">
+    <!-- Pokemon list will be shown here -->  
+    </div>
+        <!--Bootstrap modal-->
+    <div class="modal fade" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemon-name" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="pokemon-name">Pokemon name</h2>
+              <button type="button" class="btn btn-outline-warning" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> <!--modal-header-->
+            <div class="modal-body" id="pokemon-content"></div>
+            <div class="modal-footer">
+              <button type="button" class="modal-close btn btn-outline-warning" data-dismiss="modal" name="button">Close</button>
+            </div>
+          </div> <!--modal-content-->
+        </div> <!--modal-dialog-->
+      </div> <!--modal fade-->
   </section>
 
 </div><!--page-container-->
