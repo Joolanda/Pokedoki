@@ -2,6 +2,11 @@
 /* Color Pokémon: Yellow #ffcb05, Blue #3466af
 Light blue Pokemon: 618ED0
 /* here you can write your Site colors */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #3366cc;
   color: inherit;
@@ -9,7 +14,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  padding: 10px;
+  /*padding: 10px; */
 }
 
 /* Header */
