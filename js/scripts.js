@@ -71,7 +71,7 @@ var pokemonRepository = (function() {
     var $pokemonList = $(".pokemon-list");
 //Function to add list for each pokemon object
   function addListItem(pokemon) {
-    var listItem = $('$('<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>');
+    var listItem = $('<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>');
     listItem.text(pokemon.name);
     $pokemonList.append(listItem);
     listItem.click(function(){
@@ -80,7 +80,7 @@ var pokemonRepository = (function() {
   }
 // Modal to display pokemon's name, image and details
 function showDetails(pokemon){
-    pokemonRpository.loadDetails(pokemon).then(function){
+    pokemonRepository.loadDetails(pokemon).then(function(){
         //create modal
         var modal = $('.modal-body');
         var name = $('.modal-title').text(pokemon.name);
