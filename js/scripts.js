@@ -76,49 +76,6 @@ var pokemonRepository = (function() {
       })
   }
 
-  // Function to show a modal with title and text
-
-  function showModal(item) {
-    // Clear all content for the selected element
-    $modalContainer.empty();
-    // Add class to show modal
-    $modalContainer.addClass("is-visible");
-
-    var modal = $('<div class="modal"></div>');
-
-    // add the new modal content
-    var closeButtonElement = $(
-      '<button class="modal-close">' + "Close" + "</button>"
-    );
-    closeButtonElement.on("click", hideModal);
-
-    var modalTitle = $('<h1 class="modal-title">' + item.name + "</h1>");
-
-    var modalHeight = $(
-      '<p class="modal-details">' + "height : " + item.height + "m" + "</p>"
-    );
-
-    var modalType = $(
-      '<p class="modal-details">' + "Type : " + item.types + "</p>"
-    );
-
-    //Pokemon display image in modal
-    var imageElement = $('<img class="modal-img">');
-    imageElement.attr("src", item.imageUrl);
-
-    modal.append(closeButtonElement);
-    modal.append(imageElement);
-    modal.append(modalTitle);
-    modal.append(modalHeight);
-    modal.append(modalType);
-    $modalContainer.append(modal);
-  }
-
-  function hideModal() {
-    var $modalContainer = $("#modal-container");
-    $modalContainer.removeClass("is-visible");
-  }
-
   //Function to show details of each Pokemon
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function() {
