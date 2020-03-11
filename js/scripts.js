@@ -95,6 +95,25 @@ var pokemonRepository = (function() {
 })();
 // END of IIFE for Pokedex repository
 
+// Modal to display pokemon's name, image and details
+function showDetails(pokemon){
+    pokemonRpository.loadDetails(pokemon).then(function){
+        //create modal
+        var modal = $('.modal-body');
+        var name = $('.modal-title').text(pokemon.name);
+        var height = $('<p class"pokemon-height"></p>').text('Height: ' + pokemon.height + ' m.');
+        var image = $('<img class="pokemon-picture">');
+        image.attr('src', pokemon.imageUrl);
+        
+        if(modal.children().length){
+            modal.children().remove();
+        }    
+        modal.append(image)
+            .append(height)
+            .append(type);
+    });   
+}
+
 //Creates list of Pokemon with Pokemon's name on the button
 pokemonRepository.loadList().then(function() {
   var pokemons = pokemonRepository.getAll();
