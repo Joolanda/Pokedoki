@@ -4,6 +4,7 @@
  * Date: 2020-11-03
  */
 // START of IIFE for Pokedex repository
+(function(){
 var pokemonRepository = (function() {
   var repository = [];
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
@@ -18,16 +19,9 @@ var pokemonRepository = (function() {
     return repository;
   }
 
- 
-
-  function add(name) {
+  function add(item) {
     /*Add Additional Pokemon Attributes To Object Array*/
-    repository.push(name);
-  }
-
-  function catchAll() {
-    /* Function Used To Return Pokedex Object Array*/
-    return repository;
+    repository.push(item);
   }
 
   //Function to load pokemon list from API
@@ -67,7 +61,6 @@ var pokemonRepository = (function() {
   return {
     /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
-    catchAll: catchAll,
     getAll: getAll,
     loadList: loadList,
     loadDetails: loadDetails
@@ -110,4 +103,5 @@ pokemonRepository.loadList().then(function() {
     $.each(pokemons, function(index, pokemon) {
     addListItem(pokemon);
   });
-});
+});    
+})();// End of IIFE wrap
