@@ -64,19 +64,11 @@ var pokemonRepository = (function() {
       })
   }
 
-  //Function to show details of each Pokemon
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function() {
-      pokemonRepository.showModal(item);
-    });
-  }
-
   return {
     /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
     catchAll: catchAll,
     getAll: getAll,
-    addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails
   };
