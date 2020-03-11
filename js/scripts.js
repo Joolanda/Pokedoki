@@ -140,7 +140,8 @@ var pokemonRepository = (function() {
 
 //Creates list of Pokemon with Pokemon's name on the button
 pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
+  var pokemons = pokemonRepository.getAll();
+    $.each(pokemons, function(index, pokemon) {
+    addListItem(pokemon);
   });
 });
