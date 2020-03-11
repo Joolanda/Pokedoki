@@ -1,13 +1,12 @@
 /*!
  * Here comes all Javascript
- * Pokedoki App
- * Date: 2019-11-11
+ * Pokedoki App - Bootstrap and jQuery
+ * Date: 2020-11-03
  */
 // START of IIFE for Pokedex repository
 var pokemonRepository = (function() {
   var repository = [];
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  var $modalContainer = $("#modal-container");
 
   //Function to add new Pokemon data
   function add(pokemon) {
