@@ -9,8 +9,8 @@ var pokemonRepository = (function() {
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   //Function to add new Pokemon data
-  function add(pokemon) {
-    repository.push(pokemon);
+  function add(item) {
+    repository.push(item);
   }
 
   //Function to pull all Pokemon data
@@ -133,9 +133,7 @@ var pokemonRepository = (function() {
     getAll: getAll,
     addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails,
-    showModal: showModal,
-    hideModal: hideModal
+    loadDetails: loadDetails
   };
 })();
 // END of IIFE for Pokedex repository
