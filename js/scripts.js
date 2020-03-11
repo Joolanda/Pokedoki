@@ -18,19 +18,7 @@ var pokemonRepository = (function() {
     return repository;
   }
 
-  //Function to add list for each pokemon object
-  function addListItem(pokemon) {
-    var $pokemonList = $(".pokemon-list");
-    var $listItem = $('<li class="buttonstyle"></li>');
-    var $button = $(
-      '<button class="list-button">' + pokemon.name + "</button>"
-    );
-    $pokemonList.append($listItem);
-    $listItem.append($button);
-    $button.on("click", function(event) {
-      showDetails(pokemon);
-    });
-  }
+ 
 
   function add(name) {
     /*Add Additional Pokemon Attributes To Object Array*/
@@ -95,6 +83,16 @@ var pokemonRepository = (function() {
 })();
 // END of IIFE for Pokedex repository
 
+    var $pokemonList = $(".pokemon-list");
+//Function to add list for each pokemon object
+  function addListItem(pokemon) {
+    var listItem = $('$('<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>');
+    listItem.text(pokemon.name);
+    $pokemonList.append(listItem);
+    listItem.click(function(){
+      showDetails(pokemon);
+    });
+  }
 // Modal to display pokemon's name, image and details
 function showDetails(pokemon){
     pokemonRpository.loadDetails(pokemon).then(function){
