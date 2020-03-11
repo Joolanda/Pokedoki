@@ -9,55 +9,46 @@ var pokemonRepository = (function() {
   var repository = [];
   var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-  //Function to add new Pokemon data
-  function add(item) {
-    repository.push(item);
-  }
-
   //Function to pull all Pokemon data
   function getAll() {
     return repository;
   }
 
   function add(item) {
-    /*Add Additional Pokemon Attributes To Object Array*/
     repository.push(item);
   }
 
   //Function to load pokemon list from API
-  function loadList() {
-    return $.ajax(apiUrl, { dataType: "json" }).then(function(responseJSON) {
-        return responseJSON;
-      }).then(function(json) {
-        json.results.forEach(function(item){
+    function loadList(){
+      return $.ajax(apiUrl, {dataType: 'json'}).then(function(item){
+        $.each(item.results, function(index, item){
           var pokemon = {
             name: item.name,
             detailsUrl: item.url
-          };
-          add(pokemon);
-        });
-      })
-      .catch(function(e) {
+          }
+          // Adds the retrieved data to the Repository
+          add(pokemon)
+        })
+        }).catch(function(e){
         console.error(e);
       });
-  }
+    }
 
-  function loadDetails(item) {
+ function loadDetails(item){
     var url = item.detailsUrl;
-    return $.ajax(url, {dataType: 'json'}).then(function(responseJSON) {
-      return responseJSON;
-    }).then(function(details) {
-        // Now we add the details to the item
+    return $.ajax(url).then(function(details){
+    // add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        // loop for each of the pokemon types
-        item.types = Object.keys(details.types);
-      })
-      .catch(function(e) {
-        console.error(e);
-      })
-  }
+        item.types = details.types.map(function(pokemon) {
+        return pokemon.type.name;
+      });
 
+      }).catch(function(e){
+        console.error(e);
+      });
+ }
+    
   return {
     /*Return All Previous Function In Order To Be Available Outside Of IIFE */
     add: add,
@@ -68,7 +59,7 @@ var pokemonRepository = (function() {
 })();
 // END of IIFE for Pokedex repository
 
-    var $pokemonList = $(".pokemon-list");
+var $pokemonList = $(".pokemon-list");
 //Function to add list for each pokemon object
   function addListItem(pokemon) {
     var listItem = $('<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>');
