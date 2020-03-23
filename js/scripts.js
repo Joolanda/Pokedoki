@@ -14,7 +14,7 @@
     }
 
     //fetch pokemon data from API and loop it in a json 'pokemon' object
-    function loadList() {
+    /*eslint no-undef: "error"*/
       return $.ajax(apiUrl, { dataType: 'json' })
         .then(function(item) {
           $.each(item.results, function(index, item) {
