@@ -1,6 +1,3 @@
-{
-  "extends": "rallycoding"
-
   {
       "env": {
           "es6": true,
@@ -12,5 +9,4 @@
           "rules": {
             "quotes": ["error", "single"]
           }
-      }
-}
+  }
