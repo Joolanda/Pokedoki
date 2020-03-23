@@ -27,7 +27,9 @@
           });
         })
         .catch(function(e) {
+          /* eslint-disable no-console */
           console.error(e);
+          /* eslint-enable no-console */
         });
     }
 
@@ -43,7 +45,9 @@
           });
         })
         .catch(function(e) {
+          /* eslint-disable no-console */
           console.error(e);
+          /* eslint-enable no-console */
         });
     }
     // returning all functions
