@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 // IIFE wrap
 (function() {
   var pokemonRepository = (function() {
@@ -77,9 +78,10 @@
     pokemonRepository.loadDetails(pokemon).then(function() {
       // creates Modal
       var modal = ('.modal-body');
+      /*eslint no-unused-vars: 0*/
       var name = ('.modal-title').text(pokemon.name);
       var height = ('<p class="pokemon-height"></p>').text(
-        'Height: ' + pokemon.height + " m."
+        'Height: ' + pokemon.height + ' m.'
       );
       var type = ('<p class="pokemon-type"></p>').text(
         'Type: ' + pokemon.types + '.'
