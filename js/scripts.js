@@ -17,7 +17,7 @@
     /*eslint no-undef: "error"*/
       return $.ajax(apiUrl, { dataType: 'json' })
         .then(function(item) {
-          $.each(item.results, function(index, item) {
+          $.each(item.results, function(item) {
             var pokemon = {
               name: item.name,
               detailsUrl: item.url
