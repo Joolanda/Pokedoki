@@ -49,7 +49,7 @@
       return false;
       }
 
-      showErrorMessage($passwordInout, null);
+      showErrorMessage($passwordInput, null);
       return true;
       }
 
