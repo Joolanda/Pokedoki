@@ -1,105 +1,149 @@
-// IIFE wrap
-(function() {
-  var pokemonRepository = (function() {
-    var repository = [];
-    var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+/*!
+ * Here comes all Javascript
+ * Pokedoki App
+ * Date: 2019-11-11
+ */
+// START of IIFE for Pokedex repository
+var pokemonRepository = (function() {
+  var repository = [];
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  var $modalContainer = $("#modal-container");
 
-    // returns an array of values being pushed by the 'add()' function
-    function getAll() {
-      return repository;
-    }
-    // pushes any values from 'loadList' function to the 'repository' array
-    function add(item) {
-      repository.push(item);
-    }
+  //Function to add new Pokemon data
+  function add(pokemon) {
+    repository.push(pokemon);
+  }
 
-    //fetch pokemon data from API and loop it in a json 'pokemon' object
-    function loadList() {
-      return $.ajax(apiUrl, { dataType: "json" })
-        .then(function(item) {
-          $.each(item.results, function(index, item) {
-            var pokemon = {
-              name: item.name,
-              detailsUrl: item.url
-            };
-            // Adds the retrieved data to the Repository
-            add(pokemon);
-          });
-        })
-        .catch(function(e) {
-          console.error(e);
-        });
-    }
+  //Function to pull all Pokemon data
+  function getAll() {
+    return repository;
+  }
 
-    function loadDetails(item) {
-      var url = item.detailsUrl;
-      return $.ajax(url)
-        .then(function(details) {
-          // add the details to the item
-          item.imageUrl = details.sprites.front_default;
-          item.height = details.height;
-          item.types = details.types.map(function(pokemon) {
-            return pokemon.type.name;
-          });
-        })
-        .catch(function(e) {
-          console.error(e);
-        });
-    }
-    // returning all functions
-    return {
-      add: add,
-      getAll: getAll,
-      loadList: loadList,
-      loadDetails: loadDetails
-    };
-  })();
-
-  var $pokemonList = $(".pokemon-list");
-
+  //Function to add list for each pokemon object
   function addListItem(pokemon) {
-    var listItem = $(
-      '<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>'
+    var $pokemonList = $(".pokemon-list");
+    var $listItem = $('<li class="buttonstyle"></li>');
+    var $button = $(
+      '<button class="list-button">' + pokemon.name + "</button>"
     );
-    listItem.text(pokemon.name);
-    $pokemonList.append(listItem);
-    listItem.click(function() {
+    $pokemonList.append($listItem);
+    $listItem.append($button);
+    $button.on("click", function(event) {
       showDetails(pokemon);
     });
   }
 
-  //Modal display details about pokemon rom 'pokemon': img, height and type
-  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function() {
-      // creates Modal
-      var modal = $(".modal-body");
-      var name = $(".modal-title").text(pokemon.name);
-      var height = $('<p class="pokemon-height"></p>').text(
-        "Height: " + pokemon.height + " m."
-      );
-      var type = $('<p class="pokemon-type"></p>').text(
-        "Type: " + pokemon.types + "."
-      );
-      var image = $('<img class="pokemon-picture">');
-      image.attr("src", pokemon.imageUrl);
+  function add(name) {
+    /*Add Additional Pokemon Attributes To Object Array*/
+    repository.push(name);
+  }
 
-      if (modal.children().length) {
-        modal.children().remove();
-      }
+  function catchAll() {
+    /* Function Used To Return Pokedex Object Array*/
+    return repository;
+  }
 
-      modal
-        .append(image)
-        .append(height)
-        .append(type);
+  //Function to load pokemon list from API
+  function loadList() {
+    return $.ajax(apiUrl, { dataType: "json" }).then(function(responseJSON) {
+        return responseJSON;
+      }).then(function(json) {
+        json.results.forEach(function(item){
+          var pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function(e) {
+        console.error(e);
+      });
+  }
+
+  function loadDetails(item) {
+    var url = item.detailsUrl;
+    return $.ajax(url, {dataType: 'json'}).then(function(responseJSON) {
+      return responseJSON;
+    }).then(function(details) {
+        // Now we add the details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        // loop for each of the pokemon types
+        item.types = Object.keys(details.types);
+      })
+      .catch(function(e) {
+        console.error(e);
+      })
+  }
+
+  // Function to show a modal with title and text
+
+  function showModal(item) {
+    // Clear all content for the selected element
+    $modalContainer.empty();
+    // Add class to show modal
+    $modalContainer.addClass("is-visible");
+
+    var modal = $('<div class="modal"></div>');
+
+    // add the new modal content
+    var closeButtonElement = $(
+      '<button class="modal-close">' + "Close" + "</button>"
+    );
+    closeButtonElement.on("click", hideModal);
+
+    var modalTitle = $('<h1 class="modal-title">' + item.name + "</h1>");
+
+    var modalHeight = $(
+      '<p class="modal-details">' + "height : " + item.height + "m" + "</p>"
+    );
+
+    var modalType = $(
+      '<p class="modal-details">' + "Type : " + item.types + "</p>"
+    );
+
+    //Pokemon display image in modal
+    var imageElement = $('<img class="modal-img">');
+    imageElement.attr("src", item.imageUrl);
+
+    modal.append(closeButtonElement);
+    modal.append(imageElement);
+    modal.append(modalTitle);
+    modal.append(modalHeight);
+    modal.append(modalType);
+    $modalContainer.append(modal);
+  }
+
+  function hideModal() {
+    var $modalContainer = $("#modal-container");
+    $modalContainer.removeClass("is-visible");
+  }
+
+  //Function to show details of each Pokemon
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function() {
+      pokemonRepository.showModal(item);
     });
   }
 
-  pokemonRepository.loadList().then(function() {
-    var pokemons = pokemonRepository.getAll();
+  return {
+    /*Return All Previous Function In Order To Be Available Outside Of IIFE */
+    add: add,
+    catchAll: catchAll,
+    getAll: getAll,
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showModal: showModal,
+    hideModal: hideModal
+  };
+})();
+// END of IIFE for Pokedex repository
 
-    $.each(pokemons, function(index, pokemon) {
-      addListItem(pokemon);
-    });
+//Creates list of Pokemon with Pokemon's name on the button
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
-})(); //IIFE wrap
-
+});
