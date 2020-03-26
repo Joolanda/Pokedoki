@@ -13,6 +13,7 @@
   }
   // now add the error, if the message is not empty
   if (message) {
+    /*eslint no-redeclare: 0 */
     var error = document.createElement('div');
     error.classList.add('error-message');
     error.innerText = message;
