@@ -17,7 +17,7 @@
     /*eslint no-undef: "error"*/
       return $.ajax(apiUrl, { dataType: 'json' })
         .then(function(item) {
-          $.each(item.results, function(item) {
+          $.each(item.results, function(index, item) {
             var pokemon = {
               name: item.name,
               detailsUrl: item.url
@@ -77,7 +77,7 @@
     pokemonRepository.loadDetails(pokemon).then(function() {
       // creates Modal
       var modal = ('.modal-body');
-      var naam = ('.modal-title').text(pokemon.name);
+      var name = ('.modal-title').text(pokemon.name);
       var height = ('<p class="pokemon-height"></p>').text(
         'Height: ' + pokemon.height + ' m.'
       );
@@ -101,7 +101,7 @@
   pokemonRepository.loadList().then(function() {
     var pokemons = pokemonRepository.getAll();
 
-    $.each(pokemons, function(pokemon) {
+    $.each(pokemons, function(index, pokemon) {
       addListItem(pokemon);
     });
   });
