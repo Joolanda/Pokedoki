@@ -2,7 +2,7 @@
 (function() {
   var pokemonRepository = (function() {
     var repository = [];
-    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
     // returns an array of values being pushed by the 'add()' function
     function getAll() {
@@ -14,8 +14,8 @@
     }
 
     //fetch pokemon data from API and loop it in a json 'pokemon' object
-    /*eslint no-undef: "error"*/
-      return $.ajax(apiUrl, { dataType: 'json' })
+    function loadList() {
+      return $.ajax(apiUrl, { dataType: "json" })
         .then(function(item) {
           $.each(item.results, function(index, item) {
             var pokemon = {
@@ -27,9 +27,7 @@
           });
         })
         .catch(function(e) {
-          /* eslint-disable no-console */
           console.error(e);
-          /* eslint-enable no-console */
         });
     }
 
@@ -45,9 +43,7 @@
           });
         })
         .catch(function(e) {
-          /* eslint-disable no-console */
           console.error(e);
-          /* eslint-enable no-console */
         });
     }
     // returning all functions
@@ -59,10 +55,10 @@
     };
   })();
 
-  var $pokemonList = ('.pokemon-list');
+  var $pokemonList = $(".pokemon-list");
 
   function addListItem(pokemon) {
-    var listItem = (
+    var listItem = $(
       '<button type="button" class="pokemon-list_item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>'
     );
     listItem.text(pokemon.name);
@@ -76,16 +72,16 @@
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function() {
       // creates Modal
-      var modal = ('.modal-body');
-      var name = ('.modal-title').text(pokemon.name);
-      var height = ('<p class="pokemon-height"></p>').text(
-        'Height: ' + pokemon.height + ' m.'
+      var modal = $(".modal-body");
+      var name = $(".modal-title").text(pokemon.name);
+      var height = $('<p class="pokemon-height"></p>').text(
+        "Height: " + pokemon.height + " m."
       );
-      var type = ('<p class="pokemon-type"></p>').text(
-        'Type: ' + pokemon.types + '.'
+      var type = $('<p class="pokemon-type"></p>').text(
+        "Type: " + pokemon.types + "."
       );
-      var image = ('<img class="pokemon-picture">');
-      image.attr('src', pokemon.imageUrl);
+      var image = $('<img class="pokemon-picture">');
+      image.attr("src", pokemon.imageUrl);
 
       if (modal.children().length) {
         modal.children().remove();
