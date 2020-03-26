@@ -77,7 +77,7 @@
     pokemonRepository.loadDetails(pokemon).then(function() {
       // creates Modal
       var modal = ('.modal-body');
-      var name = ('.modal-title').text(pokemon.name);
+      var naam = ('.modal-title').text(pokemon.name);
       var height = ('<p class="pokemon-height"></p>').text(
         'Height: ' + pokemon.height + ' m.'
       );
