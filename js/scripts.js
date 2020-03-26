@@ -101,7 +101,7 @@
   pokemonRepository.loadList().then(function() {
     var pokemons = pokemonRepository.getAll();
 
-    $.each(pokemons, function(index, pokemon) {
+    $.each(pokemons, function(pokemon) {
       addListItem(pokemon);
     });
   });
